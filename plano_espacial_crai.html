@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRAI | Modelo PLEM espacial v0.10 · Motor optimizado</title>
+<style>
+:root{--bg:#f2f5fa;--panel:#fff;--ink:#192a42;--muted:#718198;--line:#e3e9f1;--blue:#3568e8;--navy:#183354;--green:#188b6b;--red:#d65a54;--brown:#8b5e48;--shadow:0 9px 26px rgba(24,48,78,.07);--radius:17px}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,Segoe UI,Arial,sans-serif}.wrap{max-width:1600px;margin:auto;padding:22px 26px 38px}.top{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:18px}.brand{display:flex;align-items:center;gap:12px}.mark{width:44px;height:44px;border-radius:13px;background:linear-gradient(140deg,#254b91,#3978eb);display:grid;place-items:center;color:white;font-weight:850}.brand h1{font-size:18px;margin:0}.brand p{font-size:11px;color:var(--muted);margin:4px 0 0}.top-links{display:flex;gap:8px;flex-wrap:wrap}.link,.toolbtn{display:inline-flex;align-items:center;justify-content:center;gap:7px;border:1px solid var(--line);background:white;color:#3158ad;text-decoration:none;font-weight:750;font-size:11px;border-radius:10px;padding:10px 13px;cursor:pointer}.link:hover,.toolbtn:hover{background:#f2f6ff}.hero{background:linear-gradient(112deg,#172b49,#1d3d6d 62%,#24528c);border-radius:21px;color:#fff;padding:23px 26px;display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:16px;box-shadow:0 12px 28px rgba(24,49,83,.12)}.hero h2{font-size:22px;margin:0 0 7px}.hero p{font-size:12px;line-height:1.6;color:#d9e5f5;max-width:850px;margin:0}.hero-tag{border:1px solid #ffffff38;background:#ffffff13;border-radius:999px;padding:9px 12px;white-space:nowrap;font-size:10px;color:#e9f1ff}.notice{border:1px solid #f1dcae;background:#fff9ed;color:#765a28;border-radius:13px;padding:12px 15px;font-size:11px;line-height:1.6;margin-bottom:16px}.main-grid{display:grid;grid-template-columns:minmax(0,1.75fr) minmax(290px,.75fr);gap:15px;align-items:start}.panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.plan-panel{padding:16px;min-width:0}.panel-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:10px}.panel-head h3{margin:0;font-size:14px}.panel-head p{margin:4px 0 0;color:var(--muted);font-size:10px;line-height:1.5}.scale-tag{font-size:9px;color:#7b8798;background:#f2f5f9;padding:6px 8px;border-radius:7px;white-space:nowrap}.plan-tools{display:flex;gap:7px;flex-wrap:wrap;margin:12px 0}.toggle{display:inline-flex;align-items:center;gap:7px;padding:7px 9px;background:#f7f9fc;border:1px solid var(--line);border-radius:8px;font-size:10px;color:#44546b;cursor:pointer}.toggle input{accent-color:#3568e8}.svg-wrap{background:linear-gradient(180deg,#fbfcfe,#f6f8fb);border:1px solid #e8edf4;border-radius:13px;padding:8px;overflow:auto}.svg-wrap svg{width:100%;height:auto;display:block;min-width:560px}.side{display:grid;gap:13px}.side-card{padding:15px 16px}.side-card h3{font-size:13px;margin:0 0 10px}.measure-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.measure{background:#f6f8fc;border:1px solid #edf0f5;padding:10px;border-radius:10px}.measure span{display:block;color:var(--muted);font-size:9px}.measure strong{display:block;margin-top:5px;font-size:16px}.measure small{display:block;color:#8b97a8;font-size:8px;margin-top:4px}.legend{display:grid;gap:9px}.legend-row{display:flex;align-items:center;gap:9px;font-size:10px;color:#4e5e73}.swatch{width:20px;height:12px;border-radius:3px;display:inline-block;flex:0 0 auto}.swatch.table{background:#dce8fb;border:1.5px solid #426fbd}.swatch.chair{width:9px;height:9px;border-radius:50%;background:#2999b6}.swatch.sofa{background:#98715f;border:1px solid #694b3d}.swatch.route{height:3px;background:#1a956f}.swatch.exit{height:3px;background:#d65a54}.swatch.zone{background:#eaf4ee;border:1px dashed #80b39b}.scenario-select{width:100%;height:39px;border:1px solid #dce4ef;border-radius:9px;padding:0 10px;background:white;color:var(--ink);font:inherit;font-size:11px}.scenario-summary{margin-top:10px;display:grid;grid-template-columns:1fr 1fr;gap:7px}.scenario-metric{background:#f6f8fc;border-radius:9px;padding:9px}.scenario-metric span{display:block;font-size:9px;color:var(--muted)}.scenario-metric strong{display:block;font-size:18px;margin-top:4px}.scenario-caveat{font-size:9px;color:#8a6a37;line-height:1.55;margin:10px 0 0}.facts{margin:0;padding-left:16px;color:var(--muted);font-size:10px;line-height:1.7}.footer-note{font-size:9px;color:#8793a5;line-height:1.6;margin:14px 3px}.source{margin-top:15px;padding:15px}.source summary{cursor:pointer;font-weight:750;font-size:11px;color:#35558e}.source img{display:block;max-width:100%;height:auto;margin:13px auto 0;border:1px solid var(--line);border-radius:8px}.status-pill{display:inline-flex;gap:6px;align-items:center;background:#e9f7f1;color:#16775c;padding:6px 8px;border-radius:999px;font-size:9px;font-weight:750}.status-dot{width:6px;height:6px;background:#20a17a;border-radius:50%}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.primary{background:var(--blue);color:white;border-color:var(--blue)}.primary:hover{background:#2858cb}.small{font-size:9px;color:var(--muted);line-height:1.6;margin-top:8px}
+
+.spatial-controls{display:grid;grid-template-columns:1fr;gap:8px;margin:10px 0}
+.spatial-controls label{font-size:9px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.45px}
+.spatial-controls input{height:36px;border:1px solid #dce4ef;border-radius:8px;padding:0 10px;font:inherit;font-size:12px;color:var(--ink);width:100%}
+.spatial-controls button{width:100%;min-height:38px}
+.spatial-status{font-size:10px;line-height:1.55;color:var(--muted);margin:8px 0;padding:8px 9px;border-radius:8px;background:#f6f8fc}
+.spatial-status.ok{background:#eaf7f1;color:#176b53}.spatial-status.error{background:#fff0ef;color:#9b302c}
+.spatial-results{margin-top:10px;overflow-x:auto}.spatial-results table{width:100%;border-collapse:collapse;min-width:700px;font-size:9px}
+.spatial-results th,.spatial-results td{padding:7px 6px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}
+.spatial-results th{font-size:8px;color:var(--muted);text-transform:uppercase}
+.spatial-results td.num{text-align:right;font-weight:800;font-variant-numeric:tabular-nums}
+.spatial-select{width:100%;height:36px;border:1px solid #dce4ef;border-radius:8px;padding:0 9px;background:#fff;color:var(--ink);font:inherit;font-size:10px;margin-top:8px}
+.spatial-mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:9px}
+.spatial-mini{padding:8px;border-radius:8px;background:#f6f8fc}.spatial-mini span{display:block;color:var(--muted);font-size:8px}.spatial-mini strong{display:block;font-size:17px;margin-top:3px}
+.spatial-warning{font-size:9px;color:#805d2a;line-height:1.55;margin:9px 0 0}
+.swatch.relocated{background:#dce8fb;border:1.5px solid #3568e8}.swatch.added{background:#d9f4e8;border:1.5px solid #14845e}
+@media(max-width:650px){.spatial-results table{min-width:640px}}
+
+
+.audit-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 8px;border-radius:999px;background:#fff2df;color:#8a5a12;font-size:9px;font-weight:800}
+.audit-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.audit-cell{background:#f7f9fc;border:1px solid #edf0f5;border-radius:9px;padding:9px}
+.audit-cell span{display:block;color:var(--muted);font-size:9px}
+.audit-cell strong{display:block;margin-top:4px;font-size:15px;font-variant-numeric:tabular-nums}
+.audit-cell small{display:block;margin-top:3px;color:#8793a5;font-size:8px;line-height:1.4}
+.audit-alert{margin-top:9px;padding:10px;border:1px solid #f2d7a8;border-radius:9px;background:#fff9ef;color:#795923;font-size:9px;line-height:1.55}
+.audit-ok{margin-top:9px;padding:10px;border:1px solid #cbe7d9;border-radius:9px;background:#eff9f3;color:#246c50;font-size:9px;line-height:1.55}
+.furniture-diagram{width:100%;height:auto;display:block;background:#fbfcfe;border:1px solid #edf0f5;border-radius:10px;margin-top:8px}
+.dimension-list{display:grid;gap:7px;margin-top:8px}
+.dimension-row{display:flex;justify-content:space-between;gap:10px;padding-bottom:6px;border-bottom:1px solid #eff2f6;font-size:9px}
+.dimension-row span{color:var(--muted)}.dimension-row strong{font-variant-numeric:tabular-nums;text-align:right}
+.audit-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px}
+.audit-actions button{font-size:9px;padding:8px 10px}
+@media(max-width:1000px){.main-grid{grid-template-columns:1fr}.side{grid-template-columns:repeat(2,minmax(0,1fr))}.side-card:last-child{grid-column:1/-1}}
+
+@media(max-width:650px){.wrap{padding:14px 11px 26px}.top,.hero{align-items:flex-start;flex-direction:column}.hero{padding:20px}.hero h2{font-size:19px}.side{grid-template-columns:1fr}.side-card:last-child{grid-column:auto}.svg-wrap svg{min-width:620px}}
+@media print{body{background:white}.wrap{max-width:none;padding:0}.top-links,.plan-tools,.actions,.source{display:none!important}.panel,.hero{box-shadow:none}.main-grid{grid-template-columns:2fr 1fr}.svg-wrap{overflow:visible}.svg-wrap svg{min-width:0}.notice{break-inside:avoid}}
+
+.theory-panel{margin-top:15px;padding:18px 20px}
+.theory-panel h3{font-size:15px;margin:0 0 7px}
+.theory-intro{font-size:11px;line-height:1.65;color:var(--muted);margin:0 0 12px}
+.theory-alert{padding:11px 13px;border-radius:10px;background:#fff8e9;border:1px solid #efd8a8;color:#785a24;font-size:10px;line-height:1.6;margin:10px 0 14px}
+.theory-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.theory-block{border:1px solid var(--line);border-radius:11px;padding:12px;background:#fbfcfe;min-width:0}
+.theory-block h4{font-size:11px;margin:0 0 7px;color:#294c82}
+.theory-block p,.theory-block li{font-size:10px;line-height:1.6;color:#5e6e83;margin:0}
+.theory-block ul{padding-left:16px;margin:5px 0 0}
+.formula{font-family:Consolas,ui-monospace,monospace;background:#f0f4fa;border:1px solid #e1e8f2;border-radius:7px;padding:7px 9px;margin:6px 0;color:#203c63;font-size:10px;line-height:1.5;overflow-wrap:anywhere}
+.step-flow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin-top:10px}
+.step-card{border:1px solid var(--line);border-radius:10px;padding:10px;background:#fff}
+.step-num{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:7px;background:#eaf0ff;color:#315dc0;font-size:10px;font-weight:850;margin-bottom:7px}
+.step-card strong{display:block;font-size:10px;margin-bottom:4px;color:#294c82}
+.step-card span{display:block;font-size:9px;line-height:1.5;color:var(--muted)}
+.theory-foot{font-size:9px;color:#8290a3;line-height:1.55;margin:12px 0 0}
+@media(max-width:900px){.step-flow{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:650px){.theory-grid{grid-template-columns:1fr}.step-flow{grid-template-columns:1fr}}
+
+
+.run-mode-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.run-mode-grid .wide{grid-column:1/-1}
+.run-mode-grid select{width:100%;height:36px;border:1px solid #dce4ef;border-radius:8px;padding:0 9px;background:#fff;color:var(--ink);font:inherit;font-size:10px}
+.mode-hint{border:1px solid #dce5f4;background:#f5f8fd;color:#566b87;border-radius:8px;padding:8px 9px;font-size:9px;line-height:1.55}
+@media(max-width:650px){.run-mode-grid{grid-template-columns:1fr}.run-mode-grid .wide{grid-column:auto}}
+
+
+/* CRAI 3D shared views */
+.crai3d-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:12px 0 4px}
+.crai3d-card{min-width:0;border:1px solid var(--line,#dce4ef);border-radius:13px;background:#0a1730;padding:9px;overflow:hidden}
+.crai3d-card h4{margin:2px 3px 8px;color:var(--ink,#18304f);font-size:11px}
+.crai3d-view{width:100%;min-width:0}
+.crai3d-toolbar{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:7px}
+.crai3d-view-title{font-size:10px;font-weight:800;color:#eaf2ff}
+.crai3d-tools{display:flex;gap:5px;flex-wrap:wrap}
+.crai3d-tools button{border:1px solid #435b7c;background:#152844;color:#dce9fb;border-radius:7px;padding:5px 7px;font:inherit;font-size:8px;cursor:pointer}
+.crai3d-tools button:hover{background:#24436c}
+.crai3d-stage{height:360px;position:relative;background:radial-gradient(ellipse at 50% 44%,#18345d,#071329 72%);border:1px solid #284364;border-radius:9px;overflow:hidden}
+.crai3d-stage canvas{width:100%;height:100%;display:block;touch-action:none}
+.crai3d-loading{position:absolute;inset:0;display:grid;place-items:center;padding:16px;text-align:center;color:#d7e5f8;background:rgba(5,15,32,.72);font-size:10px;line-height:1.6}
+.crai3d-hint{padding:6px 2px 1px;color:#a8bddb;font-size:8px;line-height:1.5}
+.crai3d-2d-details{margin-top:10px;border:1px solid var(--line,#dce4ef);border-radius:9px;padding:9px;background:#fbfcfe}
+.crai3d-2d-details summary{cursor:pointer;font-size:10px;font-weight:800;color:#36557e}
+.crai3d-empty{border:1px dashed #8ea4c1;background:#f7faff;color:#5d7089;border-radius:10px;padding:18px;font-size:10px;line-height:1.6}
+.crai3d-single-panel{margin:14px 0}
+.crai3d-single-panel .crai3d-stage{height:590px}
+@media(max-width:1100px){.crai3d-grid{grid-template-columns:1fr 1fr}.crai3d-stage{height:330px}}
+@media(max-width:700px){.crai3d-grid{grid-template-columns:1fr}.crai3d-stage{height:340px}.crai3d-single-panel .crai3d-stage{height:420px}}
+@media print{.crai3d-stage{height:300px;break-inside:avoid}.crai3d-tools{display:none}.crai3d-2d-details[open]{break-inside:avoid}}
+
+
+.cbc-analytics-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:8px}.cbc-analytics-card{border:1px solid var(--line);border-radius:10px;padding:10px;background:#fbfcfe;min-width:0}.cbc-analytics-card h4{font-size:10px;margin:0 0 9px;color:#294c82}.cbc-bars{display:grid;gap:9px}.cbc-bar-row{display:grid;grid-template-columns:46px 1fr auto;align-items:center;gap:7px;font-size:8px;color:#68788d}.cbc-bar-track{height:10px;background:#edf1f6;border-radius:99px;overflow:hidden;display:flex}.cbc-bar-seg{height:100%}.cbc-bar-val{font-weight:800;color:#193555;font-variant-numeric:tabular-nums}@media(max-width:900px){.cbc-analytics-grid{grid-template-columns:1fr}}
+
+.crai3d-live-badge{position:absolute;z-index:4;top:9px;left:9px;max-width:calc(100% - 18px);padding:7px 10px;border:1px solid rgba(133,174,220,.35);border-radius:9px;background:rgba(5,17,36,.88);color:#dceafb;font-size:9px;line-height:1.4;box-shadow:0 5px 16px rgba(0,0,0,.18);backdrop-filter:blur(6px)}.crai3d-live-badge strong{color:#55d8b0;font-size:13px}.crai3d-live-badge b{color:#ffbd72}.crai3d-live-badge small{display:block;color:#9cb4d4;font-size:7px;margin-top:2px}.crai3d-stage{position:relative}
+</style>
+<link rel="stylesheet" href="crai_tema_visual_azul_noche.css?v=2">
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+ <div class="brand"><div class="mark">CR</div><div><h1>CRAI · Modelo PLEM espacial · v0.10</h1><p>Universidad Peruana Unión · Filial Juliaca</p></div></div>
+ <nav class="top-links"><a class="link" href="dashboard_crai_principal.html">← Dashboard principal</a><a class="link" href="modelo_matematico_crai.html">∑ Modelo matemático</a></nav>
+</header>
+<section class="hero"><div><h2>PLEM espacial optimizado: malla progresiva y CBC eficiente</h2><p>El modelo compara posiciones, configuraciones de 2, 3 y 4 sillas y orientaciones horizontal/vertical. Cada alternativa utiliza una envolvente propia de mesa más sillas y uso inmediato; CBC descarta alternativas que salen de la zona, interfieren con rutas/columnas/sofás o se superponen con otra estación. Las coordenadas siguen en SVG y la escala de la planta no está calibrada.</p></div><span class="hero-tag">MOTOR PLEM · VERSIÓN 0.10</span></section>
+<div class="notice"><strong>Alcance de la versión 0.10:</strong> ofrece exploración rápida con malla de paso 18 SVG para un escenario, ejecución exacta individual y comparación completa A/B/C con malla fina de paso 12 (524 anclajes). Envolventes de trabajo: 2 sillas = 1,20 × 1,10 m; 3 sillas = 1,70 × 1,10 m; 4 sillas = 1,20 × 1,60 m. Cada silla se representa con una huella rectangular de 0,45 × 0,50 m estimados. El factor de conversión a SVG es local al símbolo de mesa, <b>no una calibración de la planta</b>. La diferencia entre factores generales de la planta sigue siendo aprox. <b>29,5 %</b>; estos resultados no certifican medidas, circulación ni evacuación.</div>
+<div class="main-grid">
+ <section class="panel plan-panel">
+  <div class="panel-head"><div><h3>Segundo nivel · geometría de referencia</h3><p>Contorno y zonas trazados desde el croquis original; mobiliario interior de ubicación aproximada</p></div><span class="scale-tag">AUDITORÍA DIMENSIONAL</span></div>
+  <div class="plan-tools">
+   <label class="toggle"><input type="checkbox" id="showTables" checked> Mesas (48)</label>
+   <label class="toggle"><input type="checkbox" id="showChairs" checked> Sillas (193)</label>
+   <label class="toggle"><input type="checkbox" id="showProposal" disabled> Propuesta CBC</label>
+   <label class="toggle"><input type="checkbox" id="showSofas" checked> Sofás (4)</label>
+   <label class="toggle"><input type="checkbox" id="showRoutes" checked> Rutas del croquis</label>
+   <label class="toggle"><input type="checkbox" id="showZones" checked> Zonas y etiquetas</label>
+  </div>
+  <div class="crai3d-single-panel" style="margin:12px 0">
+   <div class="panel-head"><div><h3>Vista tridimensional del croquis y la solución CBC</h3><p>Modelo 3D interactivo del segundo nivel. Las posiciones se actualizan con el escenario seleccionado y los resultados guardados por CBC.</p></div><span class="audit-badge">3D · CROQUIS ORIGINAL</span></div>
+   <div id="crai3dCBCView" class="crai3d-view" data-crai3d-view data-crai3d-single data-scenario="A"></div>
+   <p class="small">Coordenadas SVG referenciales; la escala arquitectónica y la geometría interior no están calibradas en campo.</p>
+  </div>
+  <details class="crai3d-2d-details"><summary>Consultar el plano vectorial 2D original y sus capas</summary>
+  <div class="svg-wrap">
+  <svg id="craiPlan" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 590 430" role="img" aria-label="Plano vectorial esquemático del segundo nivel del CRAI con contorno irregular, escaleras, circulación, 48 mesas y 4 sofás aproximados">
+   <defs>
+    <pattern id="floorGrid" width="12" height="12" patternUnits="userSpaceOnUse"><path d="M12 0H0V12" fill="none" stroke="#edf1f4" stroke-width=".55"/></pattern>
+    <marker id="arrowGreen" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0 0L6 3L0 6Z" fill="#168a68"/></marker>
+    <marker id="arrowRed" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0 0L6 3L0 6Z" fill="#d65a54"/></marker>
+    <clipPath id="floorClip"><path d="M43 121 L319 52 L326 127 C373 126 425 132 477 146 L491 111 L570 140 L562 171 L538 231 L491 366 C451 350 418 330 388 322 C345 311 305 309 264 316 C205 329 151 370 79 398 L43 358 L17 269 L99 227 Z"/></clipPath>
+   </defs>
+   <rect x="0" y="0" width="590" height="430" fill="#fbfcfd"/>
+   <!-- Huella general del edificio, con perímetro irregular calcado visualmente del croquis -->
+   <path d="M43 121 L319 52 L326 127 C373 126 425 132 477 146 L491 111 L570 140 L562 171 L538 231 L491 366 C451 350 418 330 388 322 C345 311 305 309 264 316 C205 329 151 370 79 398 L43 358 L17 269 L99 227 Z" fill="#f7f9fb" stroke="#263b55" stroke-width="5" stroke-linejoin="round"/>
+   <g clip-path="url(#floorClip)"><rect x="10" y="45" width="570" height="360" fill="url(#floorGrid)"/>
+    <!-- Zonas de estudio principales -->
+    <path d="M205 132 L478 145 L512 211 L490 225 L208 226 L183 185 Z" fill="#e9f3eb" stroke="#a7c7b3" stroke-width="1.2"/>
+    <path d="M151 236 L492 228 L492 360 L389 323 L264 317 L153 356 Z" fill="#edf4fb" stroke="#a7bdd8" stroke-width="1.2"/>
+    <!-- Circulación central libre -->
+    <path d="M126 224 C198 224 264 223 334 223 C397 223 455 224 505 224" fill="none" stroke="#d6eee5" stroke-width="23" stroke-linecap="round"/>
+   </g>
+   <!-- Ambientes auxiliares de la parte superior izquierda -->
+   <g fill="#eef1f4" stroke="#53667c" stroke-width="2">
+    <path d="M44 121 L160 91 L173 173 L142 205 L96 226 Z"/>
+    <path d="M162 91 L231 72 L238 128 L326 127 L322 52 Z"/>
+    <path d="M232 72 L319 52 L326 127 L238 128 Z" fill="#f0f2f4"/>
+   </g>
+   <g fill="none" stroke="#68798d" stroke-width="1.2"><path d="M161 92L174 174L144 205"/><path d="M231 72L238 128"/><path d="M238 128L326 127"/></g>
+   <g class="zones" fill="#5a6c82" font-size="8" font-weight="700" text-anchor="middle">
+    <text x="103" y="156">AMBIENTE</text><text x="103" y="166">AUXILIAR</text>
+    <text x="207" y="105">AMBIENTE</text><text x="207" y="115">AUXILIAR</text>
+   </g>
+   <!-- Ambiente auxiliar superior derecho -->
+   <path d="M491 111 L570 140 L562 171 L478 146 Z" fill="#edf0f3" stroke="#53667c" stroke-width="2"/>
+   <g fill="#68798d" font-size="7" font-weight="700" text-anchor="middle"><text x="527" y="140">AMBIENTE</text><text x="527" y="149">AUXILIAR</text></g>
+   <!-- Ala de escaleras abajo a la izquierda -->
+   <path d="M17 269 L99 227 L147 314 L79 398 L43 358 Z" fill="#f0f1f2" stroke="#263b55" stroke-width="3"/>
+   <path d="M31 273 L103 239 L137 309 L78 373 L51 352 Z" fill="#e4e8ec" stroke="#75869a" stroke-width="1.5"/>
+   <g stroke="#8c9aaa" stroke-width="1"><path d="M34 279L105 246M38 286L109 253M42 294L113 260M46 302L117 267M50 310L121 274M54 318L125 281M58 326L129 288M62 334L133 295M66 342L137 302M70 350L139 309"/></g>
+   <g fill="#586b81" font-size="8" font-weight="800" text-anchor="middle"><text x="73" y="328" transform="rotate(-25 73 328)">ESCALERA</text></g>
+   <!-- Aberturas / puertas y ventanas orientativas -->
+   <g stroke="#4d7897" stroke-width="3" fill="none" opacity=".9">
+    <path d="M58 116L89 108M112 102L146 93M171 88L202 80M244 69L275 61M340 130Q402 132 454 143M506 158L550 173"/>
+    <path d="M125 371Q188 338 246 323Q319 301 384 319Q431 336 478 354"/>
+   </g>
+   <!-- Columnas / elementos fijos que aparecen en el croquis, ubicacion referencial -->
+   <g fill="#4a596a" stroke="#fff" stroke-width="1"><rect x="240" y="216" width="7" height="7"/><rect x="324" y="213" width="7" height="7"/><rect x="412" y="221" width="7" height="7"/><rect x="468" y="244" width="7" height="7"/><rect x="286" y="304" width="7" height="7"/></g>
+   <!-- Área de mobiliario: distribución en dos bandas como lectura del croquis y las fotografías -->
+   <g id="tableLayer"></g><g id="chairLayer"></g><g id="proposalLayer" style="display:none"></g>
+   <!-- Zona lounge inferida por las fotos, ubicación a validar con plano medido -->
+   <g id="sofaLayer">
+    <g id="sofa-1" transform="translate(188 274)"><rect width="30" height="13" rx="3" fill="#98715f" stroke="#684a3b" stroke-width="1.2"/><path d="M15 1V12" stroke="#e6d1c5" stroke-width="1"/><rect x="2" y="2" width="11" height="8" rx="2" fill="#b18b79"/><rect x="17" y="2" width="11" height="8" rx="2" fill="#b18b79"/></g>
+    <g id="sofa-2" transform="translate(222 274)"><rect width="30" height="13" rx="3" fill="#98715f" stroke="#684a3b" stroke-width="1.2"/><path d="M15 1V12" stroke="#e6d1c5" stroke-width="1"/><rect x="2" y="2" width="11" height="8" rx="2" fill="#b18b79"/><rect x="17" y="2" width="11" height="8" rx="2" fill="#b18b79"/></g>
+    <g id="sofa-3" transform="translate(188 291)"><rect width="30" height="13" rx="3" fill="#98715f" stroke="#684a3b" stroke-width="1.2"/><path d="M15 1V12" stroke="#e6d1c5" stroke-width="1"/><rect x="2" y="2" width="11" height="8" rx="2" fill="#b18b79"/><rect x="17" y="2" width="11" height="8" rx="2" fill="#b18b79"/></g>
+    <g id="sofa-4" transform="translate(222 291)"><rect width="30" height="13" rx="3" fill="#98715f" stroke="#684a3b" stroke-width="1.2"/><path d="M15 1V12" stroke="#e6d1c5" stroke-width="1"/><rect x="2" y="2" width="11" height="8" rx="2" fill="#b18b79"/><rect x="17" y="2" width="11" height="8" rx="2" fill="#b18b79"/></g>
+   </g>
+   <!-- Rutas del plano de evacuacion original: verde y rojo -->
+   <g id="routeLayer" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M128 224 C198 224 264 223 334 223 C397 223 455 224 505 224" stroke="#168a68" stroke-width="4.2" marker-end="url(#arrowGreen)"/>
+    <path d="M321 126 L321 212" stroke="#168a68" stroke-width="3.8" marker-end="url(#arrowGreen)"/>
+    <path d="M132 158 L163 215 L178 268" stroke="#168a68" stroke-width="3.5" marker-end="url(#arrowGreen)"/>
+    <path d="M218 92 L225 212" stroke="#168a68" stroke-width="3.5" marker-end="url(#arrowGreen)"/>
+    <path d="M519 168 L505 221 L491 286" stroke="#168a68" stroke-width="3.5" marker-end="url(#arrowGreen)"/>
+    <path d="M337 108 C383 108 423 112 466 124" stroke="#d65a54" stroke-width="3.5" marker-end="url(#arrowRed)"/>
+    <path d="M58 282 C41 290 45 319 57 343 C63 358 81 366 100 350 L141 330" stroke="#d65a54" stroke-width="3.5" marker-end="url(#arrowRed)"/>
+   </g>
+   <!-- Etiquetas de zonas -->
+   <g id="zoneLabels" font-family="Arial, sans-serif" text-anchor="middle">
+    <g fill="#52715f" font-size="9" font-weight="800"><text x="355" y="137">ZONA DE ESTUDIO 1</text><text x="343" y="239">ZONA DE ESTUDIO 2</text></g>
+    <text x="320" y="214" fill="#176d55" font-size="8" font-weight="800">CIRCULACIÓN CENTRAL · RUTA DEL CROQUIS</text>
+    <text x="190" y="319" fill="#795847" font-size="8" font-weight="800">ZONA LOUNGE*</text>
+    <text x="518" y="184" fill="#63758a" font-size="7">LÍMITE /</text><text x="518" y="193" fill="#63758a" font-size="7">VENTANAS</text>
+   </g>
+   <!-- Etiquetas de cotas generales, no escala de dibujo -->
+   <g fill="#344b68" font-size="9" font-weight="800"><text x="296" y="28" text-anchor="middle">LARGO GENERAL INFORMADO: 22,15 m</text><text x="565" y="28" text-anchor="end">ANCHO GENERAL: 10,70 m</text></g>
+   <g fill="#6c7d91" font-size="7"><text x="308" y="416" text-anchor="middle">* Ubicación de sofás aproximada a partir de las fotografías; pendiente de confirmar sobre el plano medido.</text></g>
+  </svg>
+  </div>
+  </details>
+  <div class="actions"><button class="toolbtn primary" id="printBtn">Imprimir / guardar como PDF</button><button class="toolbtn" id="resetView">Restablecer capas</button><button class="toolbtn" id="downloadGeometryBtn">Descargar ficha geométrica JSON</button></div>
+  <p class="small">Los 48 símbolos de mesa se distribuyen en dos bandas referenciales (20 + 28) únicamente para representar el inventario. No constituyen coordenadas levantadas en campo. La malla preliminar identifica candidatos en unidades SVG. La configuración de sillas se controla en el PLEM, pero la escala y la huella física diferenciada por configuración siguen pendientes.</p>
+ </section>
+ <aside class="side">
+  <section class="panel side-card"><h3>Datos generales del ambiente</h3><div class="measure-grid">
+   <div class="measure"><span>Largo general</span><strong>22,15 m</strong><small>Dato informado</small></div>
+   <div class="measure"><span>Ancho general</span><strong>10,70 m</strong><small>Dato informado</small></div>
+   <div class="measure"><span>Área rectangular referencial</span><strong>237,005 m²</strong><small>No equivale a área útil</small></div>
+   <div class="measure"><span>Configuración</span><strong>Irregular</strong><small>Contorno con curva y entrantes</small></div>
+  </div></section>
+  <section class="panel side-card" id="dimensionAuditCard">
+   <h3>Auditoría dimensional del croquis</h3>
+   <div class="audit-grid">
+    <div class="audit-cell"><span>Ancho del trazado SVG</span><strong>553 u</strong><small>De x = 17 a x = 570</small></div>
+    <div class="audit-cell"><span>Alto del trazado SVG</span><strong>346 u</strong><small>De y = 52 a y = 398</small></div>
+    <div class="audit-cell"><span>Factor horizontal derivado</span><strong>0,0401 m/u</strong><small>22,15 m ÷ 553 unidades</small></div>
+    <div class="audit-cell"><span>Factor vertical derivado</span><strong>0,0309 m/u</strong><small>10,70 m ÷ 346 unidades</small></div>
+   </div>
+   <div class="audit-alert"><strong>Control de escala:</strong> los factores horizontal y vertical difieren 29,5 %. Esto puede deberse a la fotografía, la perspectiva o al trazado esquemático. No se debe usar esta conversión para certificar áreas, distancias, pasillos ni colisiones.</div>
+   <div class="dimension-list">
+    <div class="dimension-row"><span>Relación de dimensiones informadas</span><strong>2,07 : 1</strong></div>
+    <div class="dimension-row"><span>Relación del contorno vectorizado</span><strong>1,60 : 1</strong></div>
+    <div class="dimension-row"><span>Estado de calibración métrica</span><strong style="color:#a46a13">Pendiente</strong></div>
+   </div>
+  </section>
+  <section class="panel side-card" id="candidateValidationCard">
+   <h3>Auditoría de ubicaciones · Punto 2</h3>
+   <div class="audit-grid">
+    <div class="audit-cell"><span>Anclajes evaluados</span><strong id="candRawCount">136</strong><small>Malla de búsqueda en SVG</small></div>
+    <div class="audit-cell"><span>Aptas en filtro base</span><strong id="candBaseCount">70</strong><small>Dentro de zona, ruta y sin columna</small></div>
+    <div class="audit-cell"><span>Fuera de zona</span><strong id="candOutsideCount">39</strong><small>Descartadas por polígono</small></div>
+    <div class="audit-cell"><span>Conflicto con rutas</span><strong id="candRouteCount">25</strong><small>Descartadas por banda gráfica</small></div>
+    <div class="audit-cell"><span>Conflicto con columnas</span><strong id="candColumnCount">2</strong><small>Descartadas por obstáculo fijo</small></div>
+    <div class="audit-cell"><span>Solapamientos entre candidatas</span><strong id="candOverlapCount">0</strong><small>Con la malla actual</small></div>
+   </div>
+   <div class="dimension-list" style="margin-top:10px">
+    <div class="dimension-row"><span>Escenario A · 4 sofás</span><strong id="candScenarioA">62</strong></div>
+    <div class="dimension-row"><span>Escenario B · 2 sofás</span><strong id="candScenarioB">65</strong></div>
+    <div class="dimension-row"><span>Escenario C · 0 sofás</span><strong id="candScenarioC">70</strong></div>
+   </div>
+   <div id="candAuditStatus" class="audit-alert"><strong>Estado:</strong> cribado geométrico preliminar de la malla inicial del Punto 2. No equivale a validación física.</div>
+   <div class="audit-ok">El PLEM v0.10 genera una malla fina independiente de 524 anclajes para los modos exactos. Cada configuración contiene una mesa y rectángulos individuales para sus sillas; se comprueba que las sillas queden dentro de la envolvente y no se crucen entre sí ni con la mesa. Las 136 posiciones del Punto 2 se conservan como registro de la primera malla.</div>
+   <div class="audit-actions"><a class="toolbtn" href="base_ubicaciones_crai_v01.csv" download>Descargar base CSV</a><a class="toolbtn" href="informe_validacion_ubicaciones_crai_v01.txt" download>Descargar informe</a></div>
+  </section>
+  <section class="panel side-card" id="furnitureDimensionsCard"><h3>Dimensiones y envolventes para el modelo</h3>
+   <div class="dimension-list">
+    <div class="dimension-row"><span>Mesa (dato informado)</span><strong>1,20 × 0,60 m</strong></div>
+    <div class="dimension-row"><span>Silla (estimación)</span><strong>0,45 × 0,50 m</strong></div>
+    <div class="dimension-row"><span>Proyección silla + uso por lado ocupado</span><strong>0,50 m</strong></div>
+    <div class="dimension-row"><span>Separación adicional entre estaciones (supuesto)</span><strong>0,10 m</strong></div>
+   </div>
+   <div class="dimension-list" style="margin-top:10px">
+    <div class="dimension-row"><span>Configuración 2 sillas</span><strong>1,20 × 1,10 m</strong></div>
+    <div class="dimension-row"><span>Configuración 3 sillas</span><strong>1,70 × 1,10 m</strong></div>
+    <div class="dimension-row"><span>Configuración 4 sillas</span><strong>1,20 × 1,60 m</strong></div>
+   </div>
+   <svg class="furniture-diagram" viewBox="0 0 360 190" role="img" aria-label="Envolventes estimadas para mesas con dos, tres y cuatro sillas">
+    <g transform="translate(14 24)">
+     <text x="45" y="-8" text-anchor="middle" font-size="10" font-weight="800" fill="#35558e">2 sillas</text>
+     <rect x="8" y="0" width="74" height="67" rx="4" fill="#e9f2ff" stroke="#7396d6" stroke-dasharray="4 3"/>
+     <rect x="8" y="0" width="74" height="37" rx="3" fill="#dce8fb" stroke="#426fbd"/>
+     <rect x="17" y="37" width="28" height="30" rx="3" fill="#c9edf2" stroke="#2999b6"/><rect x="45" y="37" width="28" height="30" rx="3" fill="#c9edf2" stroke="#2999b6"/>
+     <text x="45" y="82" text-anchor="middle" font-size="8" fill="#5d7089">1,20 × 1,10</text>
+    </g>
+    <g transform="translate(132 24)">
+     <text x="55" y="-8" text-anchor="middle" font-size="10" font-weight="800" fill="#35558e">3 sillas</text>
+     <rect x="0" y="0" width="110" height="67" rx="4" fill="#e9f2ff" stroke="#7396d6" stroke-dasharray="4 3"/>
+     <rect x="0" y="0" width="76" height="37" rx="3" fill="#dce8fb" stroke="#426fbd"/>
+     <rect x="12" y="37" width="28" height="30" rx="3" fill="#c9edf2" stroke="#2999b6"/><rect x="42" y="37" width="28" height="30" rx="3" fill="#c9edf2" stroke="#2999b6"/><rect x="76" y="5" width="29" height="28" rx="3" fill="#c9edf2" stroke="#2999b6"/>
+     <text x="55" y="82" text-anchor="middle" font-size="8" fill="#5d7089">1,70 × 1,10</text>
+    </g>
+    <g transform="translate(267 24)">
+     <text x="37" y="-8" text-anchor="middle" font-size="10" font-weight="800" fill="#35558e">4 sillas</text>
+     <rect x="0" y="0" width="74" height="97" rx="4" fill="#e9f2ff" stroke="#7396d6" stroke-dasharray="4 3"/>
+     <rect x="0" y="30" width="74" height="37" rx="3" fill="#dce8fb" stroke="#426fbd"/>
+     <rect x="8" y="0" width="28" height="30" rx="3" fill="#c9edf2" stroke="#2999b6"/><rect x="40" y="0" width="28" height="30" rx="3" fill="#c9edf2" stroke="#2999b6"/><rect x="8" y="68" width="28" height="30" rx="3" fill="#c9edf2" stroke="#2999b6"/><rect x="40" y="68" width="28" height="30" rx="3" fill="#c9edf2" stroke="#2999b6"/>
+     <text x="37" y="112" text-anchor="middle" font-size="8" fill="#5d7089">1,20 × 1,60</text>
+    </g>
+    <text x="180" y="165" text-anchor="middle" font-size="8" fill="#5d7089">Esquemas de envolvente; la forma SVG no está calibrada a la planta.</text>
+   </svg>
+   <div class="audit-alert"><strong>Supuesto:</strong> la proyección de 0,50 m reúne la ocupación de la silla y su uso inmediato a un lado de la mesa; no representa una holgura normativa. El factor SVG local sirve para comparar formas en pantalla, no para certificar distancias reales.</div>
+  </section>
+  <section class="panel side-card"><h3>Inventario representado</h3><div class="measure-grid">
+   <div class="measure"><span>Mesas</span><strong>48</strong><small>1,20 × 0,60 m</small></div>
+   <div class="measure"><span>Sillas</span><strong>193</strong><small>Dimensión estimada</small></div>
+   <div class="measure"><span>Sofás</span><strong>4</strong><small>2 plazas cada uno</small></div>
+   <div class="measure"><span>Capacidad contada</span><strong>201</strong><small>193 + 8 plazas sofá</small></div>
+  </div></section>
+  <section class="panel side-card"><h3>Escenarios agregados del PLEM</h3><p class="small" style="margin:0 0 9px">Selecciona un escenario para consultar los requerimientos teóricos calculados previamente.</p>
+   <select id="scenarioSelect" class="scenario-select"><option value="A">A · Conservar 4 sofás</option><option value="B">B · Conservar 2 sofás</option><option value="C">C · Retirar los 4 sofás</option></select>
+   <div class="scenario-summary">
+    <div class="scenario-metric"><span>Estudiantes atendidos</span><strong id="scStudents">248</strong></div>
+    <div class="scenario-metric"><span>Sofás conservados</span><strong id="scSofas">4</strong></div>
+    <div class="scenario-metric"><span>Mesas nuevas</span><strong id="scTables">12</strong></div>
+    <div class="scenario-metric"><span>Sillas nuevas</span><strong id="scChairs">47</strong></div>
+   </div>
+   <p class="scenario-caveat">Estos resultados proceden del modelo agregado de capacidad. No indican todavía dónde caben físicamente las mesas y sillas adicionales.</p>
+  </section>
+  <section class="panel side-card" id="spatialModelCard">
+   <h3>Optimización espacial con CBC</h3>
+   <p class="small" style="margin:0 0 8px">Ejecuta el PLEM sobre ubicaciones candidatas dentro de las dos zonas de estudio del croquis.</p>
+   <div class="spatial-controls">
+    <div class="run-mode-grid">
+     <div class="wide">
+      <label for="spatialRunMode">Modo de optimización</label>
+      <select id="spatialRunMode">
+       <option value="rapido" selected>Rápido · un escenario · malla 18 · 60 s / brecha 2 %</option>
+       <option value="exacto_unico">Exacto individual · un escenario · malla fina · optimalidad obligatoria</option>
+       <option value="comparacion">Comparación completa · A + B + C · malla fina · exacta</option>
+      </select>
+     </div>
+     <div>
+      <label for="spatialRunScenario">Escenario que se resolverá</label>
+      <select id="spatialRunScenario">
+       <option value="A">A · Conservar 4 sofás</option>
+       <option value="B">B · Conservar 2 sofás</option>
+       <option value="C">C · Retirar los 4 sofás</option>
+      </select>
+     </div>
+     <div>
+      <label for="spatialDemand">Demanda objetivo (estudiantes)</label>
+      <input id="spatialDemand" type="number" min="1" max="500" step="1" value="248">
+     </div>
+     <div class="wide mode-hint" id="spatialModeHint">Exploración rápida: resuelve solo el escenario elegido sobre una malla más espaciada. Puede devolver una solución factible sin demostrar optimalidad.</div>
+     <button class="toolbtn primary wide" id="runSpatialBtn">▶ Optimizar ubicaciones</button>
+    </div>
+   </div>
+   <div id="spatialStatus" class="spatial-status" role="status">Pendiente de ejecución. Inicia el servidor CRAI v0.10 para usar los modos de optimización.</div>
+   <div class="spatial-mini-grid">
+    <div class="spatial-mini"><span>Anclajes factibles</span><strong id="spCandidateCount">—</strong></div>
+    <div class="spatial-mini"><span>Variantes de config. factibles</span><strong id="spVariantCount">—</strong></div>
+    <div class="spatial-mini"><span>Mesas seleccionadas</span><strong id="spSelectedTables">—</strong></div>
+    <div class="spatial-mini"><span>Mesas nuevas</span><strong id="spNewTables">—</strong></div>
+    <div class="spatial-mini"><span>Sillas nuevas</span><strong id="spNewChairs">—</strong></div>
+    <div class="spatial-mini"><span>Mesas para 2</span><strong id="spConfig2">—</strong></div>
+    <div class="spatial-mini"><span>Mesas para 3</span><strong id="spConfig3">—</strong></div>
+    <div class="spatial-mini"><span>Mesas para 4</span><strong id="spConfig4">—</strong></div>
+   </div>
+   <label for="spatialScenarioSelect" class="small" style="display:block;font-weight:800;margin-top:12px">Escenario mostrado en el plano</label>
+   <select id="spatialScenarioSelect" class="spatial-select" disabled>
+    <option value="A">A · Conservar 4 sofás</option>
+    <option value="B">B · Conservar 2 sofás</option>
+    <option value="C">C · Retirar los 4 sofás</option>
+   </select>
+   <div id="spatialComparison" class="spatial-results">
+    <table><thead><tr><th>Escenario</th><th>Mesas</th><th>2 sillas</th><th>3 sillas</th><th>4 sillas</th><th>Mesas nuevas</th><th>Sillas nuevas</th><th>Atendidos</th></tr></thead>
+     <tbody><tr><td colspan="8" style="text-align:center;color:var(--muted)">Aún no se ejecuta el PLEM espacial.</td></tr></tbody>
+    </table>
+   </div>
+   <p class="spatial-warning">Motor PLEM v0.10: un único objetivo ponderado con cotas enteras mantiene el orden lexicográfico de capacidad, mesas nuevas y sillas nuevas. Un barrido espacial reduce comparaciones y las incompatibilidades completas entre dos anclajes se comprimen en restricciones agregadas. Los modos rápido, exacto individual y comparación completa se distinguen en la interfaz. La escala sigue siendo SVG no calibrado; no equivale a validación física ni aprobación de seguridad.</p>
+  </section>
+  <section class="panel side-card"><h3>Leyenda del plano</h3><div class="legend">
+   <div class="legend-row"><i class="swatch table"></i> Mesa existente (símbolo)</div>
+   <div class="legend-row"><i class="swatch chair"></i> Silla existente (símbolo)</div>
+   <div class="legend-row"><i class="swatch sofa"></i> Sofá existente (posición aproximada)</div>
+   <div class="legend-row"><i class="swatch relocated"></i> Estación con mesa del inventario actual reubicada</div>
+   <div class="legend-row"><i class="swatch added"></i> Estación con mesa adicional propuesta</div>
+   <div class="legend-row"><i class="swatch route"></i> Ruta / circulación indicada en croquis</div>
+   <div class="legend-row"><i class="swatch exit"></i> Tramo de evacuación indicado en rojo</div>
+   <div class="legend-row"><i class="swatch zone"></i> Área de estudio referencial</div>
+  </div></section>
+  <section class="panel side-card"><h3>Qué falta validar para el PLEM espacial</h3><ul class="facts"><li>Coordenadas y medidas internas del contorno.</li><li>Ubicación exacta de puertas, columnas y ventanas.</li><li>Dimensiones reales de las sillas y los sofás.</li><li>Anchos libres y condiciones de evacuación.</li><li>Posición exacta de cada mesa existente.</li><li>Posiciones candidatas y superposición de mobiliario.</li></ul><div class="status-pill" style="margin-top:10px"><i class="status-dot"></i>Base espacial en construcción</div></section>
+ </aside>
+</div>
+<section class="panel theory-panel" id="fundamentoPLEM">
+ <h3>Fundamento teórico y procedimiento de resolución del modelo PLEM</h3>
+ <p class="theory-intro">El PLEM selecciona una alternativa por anclaje, configuración de 2, 3 o 4 sillas y orientación horizontal o vertical. La mesa y cada silla se representan con rectángulos propios dentro de una envolvente de trabajo. El modelo compara capacidad, inventario y compatibilidad espacial antes de devolver una solución para el croquis.</p>
+ <div class="theory-alert"><strong>Alcance de la versión 0.10:</strong> modo rápido usa paso 18 SVG y los modos exactos usan paso 12 SVG (524 anclajes). Las envolventes estimadas son: 2 sillas = 1,20 × 1,10 m; 3 sillas = 1,70 × 1,10 m; 4 sillas = 1,20 × 1,60 m. Cada silla se dibuja como un rectángulo individual de 0,45 × 0,50 m estimados, y la orientación H/V gira la disposición. El factor gráfico local (14,58 unidades SVG/m) deriva del símbolo de mesa, no de la calibración arquitectónica del plano; la escala global continúa pendiente.</div>
+ <div class="theory-grid">
+  <article class="theory-block">
+   <h4>1. Conjuntos y parámetros</h4>
+   <p><strong>I:</strong> anclajes de la malla fina. <strong>K:</strong> {2, 3, 4} sillas. <strong>O:</strong> {H, V}, orientación horizontal o vertical. <strong>D:</strong> demanda de diseño (248 estimada). <strong>M₀:</strong> 48 mesas. <strong>S₀:</strong> 193 sillas. <strong>F:</strong> plazas de sofás retenidos (8, 4 o 0).</p>
+  </article>
+  <article class="theory-block">
+   <h4>2. Variables de decisión</h4>
+   <div class="formula">x[i,k,o] ∈ {0,1}</div>
+   <p>Vale 1 si se selecciona el anclaje i con k sillas y orientación o. <strong>A</strong> representa estudiantes atendidos; <strong>nₘ</strong>, mesas nuevas; <strong>nₛ</strong>, sillas nuevas. La orientación selecciona la forma horizontal o girada de la misma envolvente.</p>
+  </article>
+  <article class="theory-block">
+   <h4>3. Envolventes estimadas</h4>
+   <div class="formula">Wsvg = Wm × 14,58</div>
+   <div class="formula">Hsvg = Hm × 14,58</div>
+   <p>2 sillas: una fila en un lado largo (1,20 × 1,10 m). 3 sillas: dos en un lado largo y una en un extremo (1,70 × 1,10 m). 4 sillas: dos por cada lado largo (1,20 × 1,60 m). Cada silla ocupa un rectángulo estimado de 0,45 × 0,50 m; la proyección de 0,50 m por lado ocupado y la separación adicional de 0,10 m entre envolventes son supuestos de diseño, no normas.</p>
+  </article>
+  <article class="theory-block">
+   <h4>4. Función objetivo y prioridades</h4>
+   <div class="formula">Maximizar Wₐ·A − Wₘ·nₘ − nₛ</div>
+   <div class="formula">Wₘ = Uₛ + 1 ; Wₐ = Uₘ·Wₘ + Uₛ + 1</div>
+   <p>Uₘ y Uₛ son cotas superiores válidas de mesas y sillas nuevas. Los pesos garantizan que un estudiante adicional domina cualquier mejora secundaria y que una mesa menos domina cualquier variación en sillas nuevas. Por eso se conserva exactamente el orden lexicográfico con una ejecución CBC por escenario, siempre que se exija y se obtenga optimalidad demostrada.</p>
+  </article>
+  <article class="theory-block">
+   <h4>5. Restricciones principales</h4>
+   <div class="formula">Σ(k,o) x[i,k,o] ≤ 1</div>
+   <div class="formula">x[u] + x[v] ≤ 1  si las envolventes se superponen</div>
+   <div class="formula">Σ x ≤ 48 + nₘ ;  Σ k·x ≤ 193 + nₛ</div>
+   <div class="formula">A ≤ D ;  A ≤ F + Σ k·x</div>
+   <p>También se excluyen variantes que salen de la zona o interfieren con rutas, columnas o sofás conservados.</p>
+  </article>
+  <article class="theory-block">
+   <h4>6. Interpretación de CBC y modos</h4>
+   <p><strong>Rápido:</strong> un escenario, malla 18, 60 s y brecha 2 %; puede devolver una solución factible sin prueba de optimalidad. <strong>Exacto individual:</strong> un escenario, malla 12 y CBC debe demostrar Optimal. <strong>Comparación completa:</strong> A/B/C, malla 12, una ejecución por escenario y optimalidad obligatoria. En todos los casos, Optimal solo se refiere al modelo matemático y sus supuestos; no demuestra que el plano esté calibrado ni que la distribución sea implementable.</p>
+  </article>
+ </div>
+ <h4 style="font-size:11px;margin:15px 0 7px;color:#294c82">Cómo se resuelve: secuencia de trabajo</h4>
+ <div class="step-flow">
+  <div class="step-card"><span class="step-num">1</span><strong>Preparar datos</strong><span>Inventario, demanda, escenarios, dos zonas, rutas y obstáculos.</span></div>
+  <div class="step-card"><span class="step-num">2</span><strong>Generar variantes</strong><span>Elegir una malla rápida (paso 18) o fina (paso 12) y crear variantes de 2/3/4 sillas en H/V.</span></div>
+  <div class="step-card"><span class="step-num">3</span><strong>Filtrar geometría</strong><span>Descartar fuera de zona, rutas, columnas, sofás y variantes que se superponen.</span></div>
+  <div class="step-card"><span class="step-num">4</span><strong>Formular el PLEM</strong><span>Crear x[i,k,o], restricciones de una variante por anclaje, incompatibilidades, inventario y demanda.</span></div>
+  <div class="step-card"><span class="step-num">5</span><strong>Resolver con CBC</strong><span>Resolver una función objetivo lexicográfica ponderada en una sola ejecución CBC por escenario; rápido usa 60 s y brecha relativa 2 %, y no declara optimalidad exacta.</span></div>
+  <div class="step-card"><span class="step-num">6</span><strong>Auditar y visualizar</strong><span>Comprobar que cada silla esté dentro de la envolvente, que no invada la mesa ni otra silla, validar incompatibilidades entre estaciones y dibujar sus huellas sobre el croquis.</span></div>
+ </div>
+ <div class="theory-alert" style="margin-top:13px"><strong>Limitación de escala:</strong> el factor de 14,58 SVG/m solo proporciona una representación local coherente de las envolventes a partir del icono de mesa. La planta completa presenta una discrepancia de aproximadamente 29,5% entre sus factores generales. Por eso no se certifican distancias, anchos libres, áreas ni rutas con este plano.</div>
+ <p class="theory-foot">Σ significa “sumar sobre el conjunto indicado”. Cada estación seleccionada consume exactamente una mesa y 2, 3 o 4 sillas. Los sofás se contabilizan aparte. Los resultados cuantifican un escenario matemático preliminar, no una aprobación física o de seguridad.</p>
+</section>
+<section class="panel">
+ <div class="panel-head"><div><h3>Analítica PLEM · Indicadores del escenario seleccionado</h3><p>Gráficos 2D para cantidades. La distribución espacial y la concurrencia se observan en el modelo arquitectónico 3D.</p></div><span class="audit-badge">ANALÍTICA 2D</span></div>
+ <div class="cbc-analytics-grid">
+  <article class="cbc-analytics-card"><h4>Mobiliario adicional</h4><div id="cbcFurniture2D" class="cbc-bars"></div></article>
+  <article class="cbc-analytics-card"><h4>Configuraciones de sillas</h4><div id="cbcConfigs2D" class="cbc-bars"></div></article>
+  <article class="cbc-analytics-card"><h4>Estaciones por zona</h4><div id="cbcZones2D" class="cbc-bars"></div></article>
+ </div>
+ <p class="small">Las barras representan cantidades agregadas del PLEM. El croquis 3D permanece en la sección superior y recibe el estado de concurrencia compartido por el dashboard principal.</p>
+</section>
+<details class="panel source"><summary>Consultar el croquis original utilizado como referencia</summary><img alt="Croquis original del segundo nivel del CRAI proporcionado por el usuario" src="data:image/jpeg;base64,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"></details>
+<p class="footer-note">CRAI · Plano espacial PLEM optimizado v0.10. Fuente geométrica: croquis de evacuación del segundo nivel proporcionado por el usuario. Se documenta una inconsistencia entre la relación de aspecto del trazado y las dimensiones generales; por tanto, la escala métrica continúa pendiente. No constituye un plano arquitectónico, de evacuación ni una solución física validada.</p>
+</div>
+<script>
+const svgNS='http://www.w3.org/2000/svg';
+const tableLayer=document.getElementById('tableLayer');
+const chairLayer=document.getElementById('chairLayer');
+function addSvg(parent,tag,attrs){const el=document.createElementNS(svgNS,tag);Object.entries(attrs).forEach(([k,v])=>el.setAttribute(k,v));parent.appendChild(el);return el;}
+function drawTable(x,y,id){
+ const g=addSvg(tableLayer,'g',{'data-table':id});
+ addSvg(g,'rect',{x,y,width:17,height:9,rx:1.7,fill:'#dce8fb',stroke:'#426fbd','stroke-width':1.15});
+ addSvg(g,'line',{x1:x+8.5,y1:y+1,x2:x+8.5,y2:y+8,stroke:'#a3b9df','stroke-width':.6});
+ const seats=[[x+3,y-3],[x+14,y-3],[x+3,y+12],[x+14,y+12]];
+ seats.forEach(([cx,cy])=>addSvg(chairLayer,'circle',{cx,cy,r:1.9,fill:'#2999b6',stroke:'#fff','stroke-width':.45}));
+}
+// Dos bandas de mobiliario esquemáticas: 20 mesas arriba y 28 abajo.
+let n=0;
+const upperXs=[245,293,341,389,437], upperYs=[145,161,177,193];
+upperYs.forEach(y=>upperXs.forEach(x=>drawTable(x,y,++n)));
+const lowerXs=[260,291,322,353,384,415,446], lowerYs=[243,260,277,294];
+lowerYs.forEach(y=>lowerXs.forEach(x=>drawTable(x,y,++n)));
+// Una silla adicional, pues el inventario declarado es 193 y 48x4 = 192.
+addSvg(chairLayer,'circle',{cx:475,cy:301,r:2.15,fill:'#2999b6',stroke:'#fff','stroke-width':.5,'data-extra-chair':'1'});
+// Controles de capas.
+const layerMap={showTables:'tableLayer',showChairs:'chairLayer',showSofas:'sofaLayer',showRoutes:'routeLayer',showZones:'zoneLabels'};
+Object.entries(layerMap).forEach(([input,id])=>document.getElementById(input).addEventListener('change',e=>document.getElementById(id).style.display=e.target.checked?'':'none'));
+document.getElementById('resetView').addEventListener('click',()=>{Object.entries(layerMap).forEach(([input,id])=>{document.getElementById(input).checked=true;document.getElementById(id).style.display='';});});
+document.getElementById('printBtn').addEventListener('click',()=>window.print());
+const scenarioData={A:{students:248,sofas:4,tables:12,chairs:47},B:{students:248,sofas:2,tables:13,chairs:51},C:{students:248,sofas:0,tables:14,chairs:55}};
+document.getElementById('scenarioSelect').addEventListener('change',e=>{const d=scenarioData[e.target.value];document.getElementById('scStudents').textContent=d.students;document.getElementById('scSofas').textContent=d.sofas;document.getElementById('scTables').textContent=d.tables;document.getElementById('scChairs').textContent=d.chairs;});
+
+// ================= PLEM ESPACIAL PRELIMINAR =================
+const proposalLayer = document.getElementById('proposalLayer');
+const showProposalToggle = document.getElementById('showProposal');
+let spatialComparisonData = null;
+let currentSpatialScenario = 'A';
+
+function svgElement(parent, tag, attrs) {
+  const el = document.createElementNS(svgNS, tag);
+  Object.entries(attrs).forEach(([key, value]) => el.setAttribute(key, value));
+  parent.appendChild(el);
+  return el;
+}
+
+function setSpatialStatus(message, type='') {
+  const el = document.getElementById('spatialStatus');
+  el.textContent = message;
+  el.className = 'spatial-status' + (type ? ' ' + type : '');
+}
+
+function drawSpatialProposal(result) {
+  proposalLayer.innerHTML = '';
+  if (!result || !Array.isArray(result.ubicaciones)) return;
+  result.ubicaciones.forEach((p, index) => {
+    const g = svgElement(proposalLayer, 'g', {
+      'data-proposal-id': p.variante_id || p.id,
+      'data-zone': p.zona,
+      'data-config': p.configuracion,
+      'data-orientation': p.orientacion,
+      'data-type': p.tipo,
+      'aria-label': `${p.id}, ${p.configuracion} sillas, orientación ${p.orientacion}, ${p.tipo}`
+    });
+    const added = p.tipo === 'adicional';
+    const fill = added ? '#d9f4e8' : '#dce8fb';
+    const stroke = added ? '#14845e' : '#3568e8';
+    const r = p.rect_svg;
+    const title = svgElement(g, 'title', {});
+    title.textContent = `${p.variante_id || p.id} · ${p.configuracion} sillas · ${p.orientacion} · envolvente ${Number(p.ancho_env_m_estimado).toFixed(2)} × ${Number(p.profundidad_env_m_estimada).toFixed(2)} m (estimada)`;
+    // Envolvente completa específica de la configuración y orientación.
+    svgElement(g, 'rect', {
+      x:r.x, y:r.y, width:r.ancho, height:r.alto, rx:2,
+      fill:fill, 'fill-opacity':0.42, stroke:stroke, 'stroke-width':0.95,
+      'stroke-dasharray': added ? '2.5 1.7' : 'none'
+    });
+    // Mesa real informada, representada en la escala gráfica local.
+    const m = p.mesa_svg;
+    svgElement(g, 'rect', {
+      x:m.x, y:m.y, width:m.ancho, height:m.alto, rx:1.3,
+      fill:added?'#bde6d3':'#c6d9fa', stroke:stroke, 'stroke-width':1.05
+    });
+    svgElement(g, 'text', {
+      x:m.x + m.ancho/2, y:m.y + m.alto/2 + 1.2,
+      'text-anchor':'middle', 'font-size':'3.6', 'font-weight':'800', fill:'#24466f'
+    }).textContent = String(p.configuracion);
+    // Huellas individuales estimadas de silla (0,45 x 0,50 m), giradas según orientación.
+    (p.sillas_svg || []).forEach((seat, seatIndex) => {
+      svgElement(g, 'rect', {
+        x:seat.x, y:seat.y, width:seat.ancho, height:seat.alto, rx:0.75,
+        fill:'#42b6c8', stroke:'#ffffff', 'stroke-width':0.65,
+        'data-seat-index':seatIndex + 1
+      });
+    });
+    g.setAttribute('data-inventory', index < Math.max(0, result.mesas_inventario_asignado || 0) ? 'existente-reubicada' : 'adicional');
+  });
+  showProposalToggle.disabled = false;
+  showProposalToggle.checked = true;
+  proposalLayer.style.display = '';
+  document.getElementById('showTables').checked = false;
+  document.getElementById('showChairs').checked = false;
+  document.getElementById('tableLayer').style.display = 'none';
+  document.getElementById('chairLayer').style.display = 'none';
+}
+
+function renderSpatialComparison(data) {
+  const tbody = document.querySelector('#spatialComparison tbody');
+  tbody.innerHTML = '';
+  data.resultados.forEach(r => {
+    const tr = document.createElement('tr');
+    const cfg = r.configuraciones || {"2":0,"3":0,"4":0};
+    const vals = [r.codigo, r.ubicaciones_seleccionadas, cfg["2"] || 0, cfg["3"] || 0, cfg["4"] || 0, r.mesas_nuevas, r.sillas_nuevas, r.estudiantes_atendidos];
+    vals.forEach((value, index) => {
+      const td = document.createElement('td');
+      td.textContent = value;
+      if (index > 0) td.className = 'num';
+      tr.appendChild(td);
+    });
+    tbody.appendChild(tr);
+  });
+}
+
+function renderSpatialAnalytics(result){
+ if(!result)return;
+ const fmt=n=>new Intl.NumberFormat('es-PE').format(Number(n)||0);
+ const draw=(id,rows)=>{const el=document.getElementById(id);if(!el)return;const max=Math.max(1,...rows.map(x=>Number(x.value)||0));el.innerHTML=rows.map(x=>`<div class="cbc-bar-row"><b>${x.label}</b><div class="cbc-bar-track"><div class="cbc-bar-seg" style="width:${Math.max(0,Number(x.value)||0)/max*100}%;background:${x.color}"></div></div><span class="cbc-bar-val">${fmt(x.value)}</span></div>`).join('');};
+ draw('cbcFurniture2D',[{label:'Mesas',value:result.mesas_nuevas,color:'#d97706'},{label:'Sillas',value:result.sillas_nuevas,color:'#24a36f'}]);
+ draw('cbcConfigs2D',[{label:'2 sillas',value:result.configuraciones?.['2'],color:'#93a9cc'},{label:'3 sillas',value:result.configuraciones?.['3'],color:'#4f8ac9'},{label:'4 sillas',value:result.configuraciones?.['4'],color:'#1b9ab2'}]);
+ draw('cbcZones2D',[{label:'Superior',value:result.zonas?.SUPERIOR,color:'#426fbd'},{label:'Inferior',value:result.zonas?.INFERIOR,color:'#16865f'}]);
+}
+function updateSpatialScenario(code) {
+  if (!spatialComparisonData) return;
+  const result = spatialComparisonData.resultados.find(r => r.codigo === code);
+  if (!result) return;
+  currentSpatialScenario = code;
+  window.CRAI3DViews?.selectScenario(code);
+  renderSpatialAnalytics(result);
+  document.getElementById('spSelectedTables').textContent = result.ubicaciones_seleccionadas;
+  document.getElementById('spNewTables').textContent = result.mesas_nuevas;
+  document.getElementById('spNewChairs').textContent = result.sillas_nuevas;
+  document.getElementById('spCandidateCount').textContent = result.candidatos_disponibles;
+  document.getElementById('spVariantCount').textContent = result.variantes_disponibles;
+  const cfg = result.configuraciones || {"2":0,"3":0,"4":0};
+  document.getElementById('spConfig2').textContent = cfg["2"] || 0;
+  document.getElementById('spConfig3').textContent = cfg["3"] || 0;
+  document.getElementById('spConfig4').textContent = cfg["4"] || 0;
+  // Ajusta los sofás conservados del escenario representado.
+  [1,2,3,4].forEach(i => {
+    const sofa = document.getElementById('sofa-'+i);
+    const retained = code === 'A' ? i <= 4 : (code === 'B' ? i <= 2 : false);
+    if (sofa) sofa.style.display = retained ? '' : 'none';
+  });
+  drawSpatialProposal(result);
+}
+
+function waitMs(ms) { return new Promise(resolve => setTimeout(resolve, ms)); }
+
+async function readApiJson(url, options = {}) {
+  const response = await fetch(url, {...options, cache:'no-store'});
+  const raw = await response.text();
+  let data;
+  try { data = JSON.parse(raw); }
+  catch (_) { throw new Error(`El servidor respondió con contenido no JSON (HTTP ${response.status}). Reinicia el servidor CRAI v0.10. Respuesta: ${raw.slice(0,180)}`); }
+  if (!response.ok || data.ok === false) throw new Error(data.error || data.message || `Error HTTP ${response.status}`);
+  return data;
+}
+
+function updateRunModeHint() {
+  const mode = document.getElementById('spatialRunMode').value;
+  const scenarioSelect = document.getElementById('spatialRunScenario');
+  const hint = document.getElementById('spatialModeHint');
+  if (mode === 'rapido') {
+    scenarioSelect.disabled = false;
+    hint.textContent = 'RÁPIDO: resuelve solo el escenario elegido, con malla de paso 18 SVG, límite de 60 segundos y brecha relativa del 2 %. Puede devolver una solución factible sin demostrar optimalidad; úsalo para explorar.';
+  } else if (mode === 'exacto_unico') {
+    scenarioSelect.disabled = false;
+    hint.textContent = 'EXACTO INDIVIDUAL: resuelve solo el escenario elegido con malla fina de paso 12 SVG, sin límite de tiempo ni brecha permitida. CBC debe demostrar Optimal para aceptar el resultado.';
+  } else {
+    scenarioSelect.disabled = true;
+    hint.textContent = 'COMPARACIÓN COMPLETA: resuelve A, B y C con malla fina de 524 anclajes. Ejecuta un solve CBC por escenario y exige optimalidad demostrada.';
+  }
+}
+
+function populateOutputScenarioSelect(results, preferred) {
+  const select = document.getElementById('spatialScenarioSelect');
+  select.innerHTML = '';
+  results.forEach(r => {
+    const option = document.createElement('option');
+    option.value = r.codigo;
+    option.textContent = r.escenario;
+    select.appendChild(option);
+  });
+  select.value = preferred;
+  select.disabled = results.length <= 1;
+}
+
+async function executeSpatialOptimization() {
+  const demand = Number(document.getElementById('spatialDemand').value);
+  const mode = document.getElementById('spatialRunMode').value;
+  const scenario = document.getElementById('spatialRunScenario').value;
+  const button = document.getElementById('runSpatialBtn');
+  if (!Number.isInteger(demand) || demand < 1 || demand > 500) {
+    setSpatialStatus('Ingresa una demanda entera entre 1 y 500 estudiantes.', 'error');
+    return;
+  }
+  button.disabled = true;
+  button.textContent = '⏳ Preparando CBC...';
+  document.getElementById('spatialScenarioSelect').disabled = true;
+  const modeLabel = mode === 'rapido' ? 'rápida' : (mode === 'exacto_unico' ? 'exacta individual' : 'comparación completa');
+  setSpatialStatus(`Iniciando ejecución ${modeLabel}. CBC trabajará en segundo plano y esta página consultará el avance.`);
+  try {
+    const started = await readApiJson('/api/espacial/optimizar/iniciar', {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({demanda_objetivo:demand, modo_ejecucion:mode, escenario:scenario})
+    });
+    const jobId = started.job_id;
+    if (!jobId) throw new Error('El servidor no devolvió el identificador del trabajo CBC.');
+    button.textContent = '⏳ CBC está optimizando...';
+    const startTime = Date.now();
+    const maxWaitMs = mode === 'comparacion' ? 30 * 60 * 1000 : 10 * 60 * 1000;
+    while (true) {
+      if (Date.now() - startTime > maxWaitMs) {
+        throw new Error('La optimización excedió el tiempo de espera de la página. Revisa la terminal del servidor antes de iniciar otra ejecución.');
+      }
+      const status = await readApiJson(`/api/espacial/optimizar/estado?job_id=${encodeURIComponent(jobId)}`);
+      const pct = Number.isFinite(status.progress) ? Math.round(status.progress) : 0;
+      const elapsed = Math.round((Date.now() - startTime) / 1000);
+      if (status.state === 'queued' || status.state === 'running') {
+        setSpatialStatus(`${status.message || 'CBC está resolviendo el modelo.'} Avance informativo: ${pct} %. Tiempo transcurrido: ${elapsed} s.`);
+        await waitMs(900);
+        continue;
+      }
+      if (status.state === 'error') throw new Error(status.error || 'El motor PLEM terminó con un error. Revisa la terminal del servidor.');
+      if (status.state !== 'done' || !status.result) throw new Error('El trabajo terminó sin devolver los resultados del PLEM.');
+
+      const data = status.result;
+      spatialComparisonData = data;
+      window.CRAI_LAST_PLEM_DATA=data;window.dispatchEvent(new CustomEvent("crai:plem-results", {detail:data}));
+      renderSpatialComparison(data);
+      const results = data.resultados || [];
+      if (!results.length) throw new Error('El servidor terminó sin resultados de escenarios.');
+      const preferred = results.length === 1 ? results[0].codigo : (data.escenario_menor_incorporacion || 'A');
+      populateOutputScenarioSelect(results, preferred);
+      updateSpatialScenario(preferred);
+      const r = results.find(v => v.codigo === preferred);
+      const exact = r && r.optimalidad_demostrada;
+      const solverLabel = exact ? 'Optimal demostrado' : 'Solución factible; optimalidad no demostrada';
+      const step = data.geometria_candidata?.paso_svg ?? '—';
+      const totalAnchors = data.geometria_candidata?.total_anclajes_malla ?? '—';
+      setSpatialStatus(`Ejecución ${modeLabel} completada. Escenarios: ${results.map(v=>v.codigo).join(', ')}. Estado del escenario mostrado: ${solverLabel}. Malla: paso ${step} SVG (${totalAnchors} anclajes). La propuesta ${preferred} ya está dibujada en el croquis.`, exact ? 'ok' : '');
+      break;
+    }
+  } catch (error) {
+    setSpatialStatus(error.message || 'No se pudo completar la optimización espacial.', 'error');
+  } finally {
+    button.disabled = false;
+    button.textContent = '▶ Optimizar ubicaciones';
+  }
+}
+
+document.getElementById('runSpatialBtn').addEventListener('click', executeSpatialOptimization);
+document.getElementById('spatialRunMode').addEventListener('change', updateRunModeHint);
+updateRunModeHint();
+document.getElementById('spatialScenarioSelect').addEventListener('change', e => updateSpatialScenario(e.target.value));
+showProposalToggle.addEventListener('change', e => { proposalLayer.style.display = e.target.checked ? '' : 'none'; });
+
+async function checkCandidateValidation() {
+  try {
+    const response = await fetch('/api/espacial/validacion', {cache:'no-store'});
+    const raw = await response.text();
+    const data = JSON.parse(raw);
+    if (!response.ok || !data.ok) throw new Error(data.error || 'No se pudo leer la base de ubicaciones.');
+    const v = data.validacion;
+    document.getElementById('candRawCount').textContent = v.total_anclajes_evaluados;
+    document.getElementById('candBaseCount').textContent = v.aptas_base;
+    document.getElementById('candOutsideCount').textContent = v.descartadas_fuera_zona;
+    document.getElementById('candRouteCount').textContent = v.descartadas_por_rutas;
+    document.getElementById('candColumnCount').textContent = v.descartadas_por_columnas;
+    document.getElementById('candOverlapCount').textContent = v.incompatibilidades_entre_candidatas;
+    document.getElementById('candScenarioA').textContent = v.escenarios.A.candidatas_elegibles;
+    document.getElementById('candScenarioB').textContent = v.escenarios.B.candidatas_elegibles;
+    document.getElementById('candScenarioC').textContent = v.escenarios.C.candidatas_elegibles;
+    const status = document.getElementById('candAuditStatus');
+    status.className = 'audit-alert';
+    status.innerHTML = '<strong>Estado:</strong> ' + v.estado + '. La geometría sigue en SVG; la validación física está pendiente.';
+  } catch (error) {
+    const status = document.getElementById('candAuditStatus');
+    status.className = 'audit-alert';
+    status.textContent = 'No se pudo consultar la validación en el servidor. Inicia abrir_dashboard_crai_v10.py. Valores visibles como referencia preliminar.';
+  }
+}
+
+async function checkSpatialEngine() {
+  try {
+    const response = await fetch('/api/espacial/estado', {cache:'no-store'});
+    const raw = await response.text();
+    let data;
+    try { data = JSON.parse(raw); }
+    catch (_) { throw new Error('El servidor activo no ofrece la API espacial. Inicia abrir_dashboard_crai_v10.py.'); }
+    if (!response.ok || !data.ok || !data.cbc_disponible) {
+      throw new Error(data.error || 'CBC no está disponible en el servidor espacial.');
+    }
+    setSpatialStatus(`Conexión correcta: PuLP ${data.pulp_version} y CBC disponibles. Malla fina de ${data.anclajes_malla || data.candidatos_base} anclajes lista.`, 'ok');
+  } catch (error) {
+    setSpatialStatus(error.message || 'No se pudo comprobar la conexión con el motor espacial.', 'error');
+  }
+}
+checkSpatialEngine();
+checkCandidateValidation();
+
+// Exporta los parámetros y la geometría de referencia para la siguiente etapa.
+document.getElementById('downloadGeometryBtn').addEventListener('click', () => {
+  const geometry = {
+    proyecto: 'Optimización de espacios del CRAI - UPeU Juliaca',
+    version_ficha: '0.3',
+    fecha_generacion: new Date().toISOString(),
+    fuente: 'Croquis de evacuación del segundo nivel proporcionado por el usuario; vectorización visual preliminar.',
+    dimensiones_generales_informadas_m: { largo: 22.15, ancho: 10.70 },
+    svg: {
+      viewBox: '0 0 590 430',
+      contorno_bbox_unidades: { xmin: 17, xmax: 570, ymin: 52, ymax: 398, ancho: 553, alto: 346 },
+      factor_horizontal_derivado_m_por_unidad: 22.15 / 553,
+      factor_vertical_derivado_m_por_unidad: 10.70 / 346,
+      diferencia_relativa_factores_pct: ((22.15 / 553) / (10.70 / 346) - 1) * 100,
+      escala_uniforme_validada: false
+    },
+    inventario: { mesas: 48, sillas: 193, sofas: 4, plazas_por_sofa: 2, capacidad_contabilizada: 201 },
+    mobiliario_m: {
+      mesa_confirmada: { ancho: 1.20, profundidad: 0.60 },
+      silla_estimada: { ancho: 0.45, profundidad: 0.50 },
+      sofa_estimado: { ancho: 1.60, profundidad: 0.85 },
+      despeje_silla_supuestamente_necesario: 0.50,
+      envolvente_esquema_mesa_con_4_sillas: { ancho: 1.20, profundidad: 1.60 }
+    },
+    criterios: {
+      pasillo_central_preliminar_m: 1.50,
+      pasillo_es_norma_confirmada: false,
+      "248_es_demanda_simultanea_estimada": true,
+      permanencia_supuestamente_minutos: 90
+    },
+    zonas_y_posiciones: {
+      zona_superior_svg: [[205,132],[478,145],[512,211],[490,225],[208,226],[183,185]],
+      zona_inferior_svg: [[151,236],[492,228],[492,360],[389,323],[264,317],[153,356]],
+      ubicacion_mesas_y_sofas: 'Referencial, no levantada en campo'
+    },
+    validacion: {
+      estado: 'PENDIENTE',
+      motivo: 'Los factores de conversión por eje difieren aproximadamente 29,5%; el plano no tiene escala métrica uniforme confirmada.',
+      no_usar_para: ['certificar áreas útiles','validar anchos de circulación','validar colisiones físicas','aprobar evacuación o implementar mobiliario']
+    }
+  };
+  const blob = new Blob([JSON.stringify(geometry, null, 2)], {type:'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a'); a.href = url; a.download = 'base_geometrica_crai_v03.json'; a.click();
+  URL.revokeObjectURL(url);
+});
+
+// Extiende el control de capas existente para que la propuesta se pueda ocultar.
+const originalResetButton = document.getElementById('resetView');
+originalResetButton.addEventListener('click', () => {
+  if (spatialComparisonData) {
+    showProposalToggle.checked = true;
+    showProposalToggle.disabled = false;
+    proposalLayer.style.display = '';
+  } else {
+    showProposalToggle.checked = false;
+    showProposalToggle.disabled = true;
+    proposalLayer.style.display = 'none';
+  }
+});
+
+</script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"}}</script>
+<script type="module" src="crai_visor3d_modulos.js"></script>
+</body>
+</html>

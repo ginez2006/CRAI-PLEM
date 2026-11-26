@@ -1,0 +1,4 @@
+﻿id;escenario;estado;demanda_objetivo;sofas_mantenidos;plazas_sofas;estudiantes_atendidos;mesas_usadas;mesas_existentes;mesas_nuevas;total_mesas_disponibles;sillas_existentes;sillas_nuevas;total_sillas;demanda_no_cubierta;capacidad_teorica_mesas_sofas;plazas_teoricas_totales
+A_CONSERVAR_4_SOFAS;A · Conservar los 4 sofás;Optimal;248;4;8;248;60;48;12;60;193;47;240;0;248;248
+B_CONSERVAR_2_SOFAS;B · Conservar 2 sofás;Optimal;248;2;4;248;61;48;13;61;193;51;244;0;248;248
+C_RETIRAR_4_SOFAS;C · Retirar los 4 sofás;Optimal;248;0;0;248;62;48;14;62;193;55;248;0;248;248

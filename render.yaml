@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: crai-plem
+    runtime: docker
+    plan: starter
+    healthCheckPath: /api/diagnostico
+    envVars:
+      - key: CRAI_OPEN_BROWSER
+        value: "0"

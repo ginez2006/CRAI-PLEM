@@ -1,0 +1,2864 @@
+{
+  "ok": true,
+  "version_motor": "0.10-motor-rapido-lexicografico",
+  "modo_ejecucion": "RAPIDO_EXPLORATORIO",
+  "fecha_ejecucion": "2026-11-23T21:46:37-05:00",
+  "pulp_version": "4.2.0",
+  "solver": "COIN_CMD",
+  "cbc_disponible": true,
+  "demanda_objetivo": 248,
+  "inventario": {
+    "mesas_existentes": 48,
+    "sillas_existentes": 193,
+    "sofas_existentes": 4,
+    "personas_por_sofa": 2
+  },
+  "geometria_candidata": {
+    "total_anclajes_malla": 223,
+    "paso_svg": 18,
+    "por_zona": {
+      "SUPERIOR": 90,
+      "INFERIOR": 133
+    },
+    "anclajes_factibles_por_escenario": {
+      "A": 90
+    },
+    "variantes_factibles_por_escenario": {
+      "A": 521
+    },
+    "configuraciones_sillas": [
+      2,
+      3,
+      4
+    ],
+    "orientaciones": [
+      "HORIZONTAL",
+      "VERTICAL"
+    ],
+    "unidades_coordenadas": "SVG",
+    "factor_visual_local_svg_por_m": 14.583333333333334,
+    "escala_planta_calibrada": false,
+    "huellas_diferenciadas_por_configuracion": true,
+    "resolucion_busqueda": "MALLA_RAPIDA"
+  },
+  "envolventes_configuracion": {
+    "factor_visual_local_svg_por_m": 14.583333333333334,
+    "fuente_factor_visual": "Promedio del símbolo de mesa 17/1.20 y 9/0.60; escala visual local, no escala de planta.",
+    "proyeccion_silla_uso_m": 0.5,
+    "separacion_entre_envolventes_m": 0.1,
+    "configuraciones": {
+      "2": {
+        "ancho_m": 1.2,
+        "profundidad_m": 1.1,
+        "area_m2": 1.32,
+        "disposicion": "Dos sillas en un lado largo"
+      },
+      "3": {
+        "ancho_m": 1.7,
+        "profundidad_m": 1.1,
+        "area_m2": 1.87,
+        "disposicion": "Dos sillas en un lado largo y una en un extremo corto"
+      },
+      "4": {
+        "ancho_m": 1.2,
+        "profundidad_m": 1.6,
+        "area_m2": 1.92,
+        "disposicion": "Dos sillas en cada lado largo"
+      }
+    }
+  },
+  "validacion_candidatas_punto2": {
+    "total_anclajes_evaluados": 136,
+    "dentro_de_zona": 97,
+    "libres_de_rutas": 72,
+    "aptas_base": 70,
+    "descartadas_fuera_zona": 39,
+    "descartadas_por_rutas": 25,
+    "descartadas_por_columnas": 2,
+    "escenarios": {
+      "A": {
+        "nombre": "A · Conservar los 4 sofás",
+        "sofas_conservados": 4,
+        "candidatas_elegibles": 62,
+        "descartadas_por_sofas": 8
+      },
+      "B": {
+        "nombre": "B · Conservar 2 sofás",
+        "sofas_conservados": 2,
+        "candidatas_elegibles": 65,
+        "descartadas_por_sofas": 5
+      },
+      "C": {
+        "nombre": "C · Retirar los 4 sofás",
+        "sofas_conservados": 0,
+        "candidatas_elegibles": 70,
+        "descartadas_por_sofas": 0
+      }
+    },
+    "incompatibilidades_entre_candidatas": 0,
+    "estado": "CRIBADO_GEOMETRICO_PRELIMINAR_EN_SVG",
+    "validacion_fisica": false,
+    "nota": "La malla se valida respecto de polígonos, rutas y columnas trazados en SVG. No certifica distancias, áreas, pasillos ni colisiones en metros por falta de escala uniforme validada."
+  },
+  "resultados": [
+    {
+      "codigo": "A",
+      "escenario": "A · Conservar los 4 sofás",
+      "estado": "Optimal",
+      "optimalidad_demostrada": false,
+      "estado_solver": "Solución exploratoria/factible; optimalidad exacta no demostrada",
+      "demanda_objetivo": 248,
+      "estudiantes_atendidos": 173,
+      "sofas_conservados": 4,
+      "plazas_sofas": 8,
+      "candidatos_disponibles": 90,
+      "variantes_disponibles": 521,
+      "ubicaciones_seleccionadas": 56,
+      "mesas_inventario_asignado": 48,
+      "mesas_nuevas": 8,
+      "sillas_en_mesas": 165,
+      "sillas_existentes_utilizadas": 165,
+      "sillas_nuevas": 0,
+      "capacidad_total_propuesta": 173,
+      "demanda_no_cubierta": 75,
+      "configuraciones": {
+        "2": 4,
+        "3": 51,
+        "4": 1
+      },
+      "orientaciones": {
+        "H": 6,
+        "V": 50
+      },
+      "zonas": {
+        "SUPERIOR": 22,
+        "INFERIOR": 34
+      },
+      "ubicaciones": [
+        {
+          "id": "SUP_18_0022",
+          "variante_id": "SUP_18_0022-K3-V",
+          "zona": "SUPERIOR",
+          "configuracion": 3,
+          "asientos": 3,
+          "orientacion": "V",
+          "x": 233.97916666666666,
+          "y": 142.60416666666666,
+          "ancho_svg": 16.041666666666668,
+          "alto_svg": 24.791666666666668,
+          "rect_svg": {
+            "x": 233.97916666666666,
+            "y": 142.60416666666666,
+            "ancho": 16.041666666666668,
+            "alto": 24.791666666666668
+          },
+          "ancho_env_m_estimado": 1.1,
+          "profundidad_env_m_estimada": 1.7,
+          "area_env_m2_estimada": 1.87,
+          "mesa_svg": {
+            "x": 233.97916666666666,
+            "y": 142.60416666666666,
+            "ancho": 8.75,
+            "alto": 17.5
+          },
+          "sillas_svg": [
+            {
+              "x": 242.72916666666666,
+              "y": 143.69791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 242.72916666666666,
+              "y": 152.44791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 235.07291666666666,
+              "y": 160.10416666666666,
+              "ancho": 6.5625,
+              "alto": 7.291666666666667
+            }
+          ],
+          "tipo": "inventario_existente_asignado"
+        },
+        {
+          "id": "SUP_18_0023",
+          "variante_id": "SUP_18_0023-K3-V",
+          "zona": "SUPERIOR",
+          "configuracion": 3,
+          "asientos": 3,
+          "orientacion": "V",
+          "x": 251.97916666666666,
+          "y": 142.60416666666666,
+          "ancho_svg": 16.041666666666668,
+          "alto_svg": 24.791666666666668,
+          "rect_svg": {
+            "x": 251.97916666666666,
+            "y": 142.60416666666666,
+            "ancho": 16.041666666666668,
+            "alto": 24.791666666666668
+          },
+          "ancho_env_m_estimado": 1.1,
+          "profundidad_env_m_estimada": 1.7,
+          "area_env_m2_estimada": 1.87,
+          "mesa_svg": {
+            "x": 251.97916666666666,
+            "y": 142.60416666666666,
+            "ancho": 8.75,
+            "alto": 17.5
+          },
+          "sillas_svg": [
+            {
+              "x": 260.72916666666663,
+              "y": 143.69791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 260.72916666666663,
+              "y": 152.44791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 253.07291666666663,
+              "y": 160.10416666666666,
+              "ancho": 6.5625,
+              "alto": 7.291666666666667
+            }
+          ],
+          "tipo": "inventario_existente_asignado"
+        },
+        {
+          "id": "SUP_18_0024",
+          "variante_id": "SUP_18_0024-K3-V",
+          "zona": "SUPERIOR",
+          "configuracion": 3,
+          "asientos": 3,
+          "orientacion": "V",
+          "x": 269.9791666666667,
+          "y": 142.60416666666666,
+          "ancho_svg": 16.041666666666668,
+          "alto_svg": 24.791666666666668,
+          "rect_svg": {
+            "x": 269.9791666666667,
+            "y": 142.60416666666666,
+            "ancho": 16.041666666666668,
+            "alto": 24.791666666666668
+          },
+          "ancho_env_m_estimado": 1.1,
+          "profundidad_env_m_estimada": 1.7,
+          "area_env_m2_estimada": 1.87,
+          "mesa_svg": {
+            "x": 269.9791666666667,
+            "y": 142.60416666666666,
+            "ancho": 8.75,
+            "alto": 17.5
+          },
+          "sillas_svg": [
+            {
+              "x": 278.7291666666667,
+              "y": 143.69791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 278.7291666666667,
+              "y": 152.44791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 271.0729166666667,
+              "y": 160.10416666666666,
+              "ancho": 6.5625,
+              "alto": 7.291666666666667
+            }
+          ],
+          "tipo": "inventario_existente_asignado"
+        },
+        {
+          "id": "SUP_18_0025",
+          "variante_id": "SUP_18_0025-K3-V",
+          "zona": "SUPERIOR",
+          "configuracion": 3,
+          "asientos": 3,
+          "orientacion": "V",
+          "x": 287.9791666666667,
+          "y": 142.60416666666666,
+          "ancho_svg": 16.041666666666668,
+          "alto_svg": 24.791666666666668,
+          "rect_svg": {
+            "x": 287.9791666666667,
+            "y": 142.60416666666666,
+            "ancho": 16.041666666666668,
+            "alto": 24.791666666666668
+          },
+          "ancho_env_m_estimado": 1.1,
+          "profundidad_env_m_estimada": 1.7,
+          "area_env_m2_estimada": 1.87,
+          "mesa_svg": {
+            "x": 287.9791666666667,
+            "y": 142.60416666666666,
+            "ancho": 8.75,
+            "alto": 17.5
+          },
+          "sillas_svg": [
+            {
+              "x": 296.7291666666667,
+              "y": 143.69791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 296.7291666666667,
+              "y": 152.44791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 289.0729166666667,
+              "y": 160.10416666666666,
+              "ancho": 6.5625,
+              "alto": 7.291666666666667
+            }
+          ],
+          "tipo": "inventario_existente_asignado"
+        },
+        {
+          "id": "SUP_18_0028",
+          "variante_id": "SUP_18_0028-K3-V",
+          "zona": "SUPERIOR",
+          "configuracion": 3,
+          "asientos": 3,
+          "orientacion": "V",
+          "x": 341.9791666666667,
+          "y": 142.60416666666666,
+          "ancho_svg": 16.041666666666668,
+          "alto_svg": 24.791666666666668,
+          "rect_svg": {
+            "x": 341.9791666666667,
+            "y": 142.60416666666666,
+            "ancho": 16.041666666666668,
+            "alto": 24.791666666666668
+          },
+          "ancho_env_m_estimado": 1.1,
+          "profundidad_env_m_estimada": 1.7,
+          "area_env_m2_estimada": 1.87,
+          "mesa_svg": {
+            "x": 341.9791666666667,
+            "y": 142.60416666666666,
+            "ancho": 8.75,
+            "alto": 17.5
+          },
+          "sillas_svg": [
+            {
+              "x": 350.7291666666667,
+              "y": 143.69791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 350.7291666666667,
+              "y": 152.44791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 343.0729166666667,
+              "y": 160.10416666666666,
+              "ancho": 6.5625,
+              "alto": 7.291666666666667
+            }
+          ],
+          "tipo": "inventario_existente_asignado"
+        },
+        {
+          "id": "SUP_18_0029",
+          "variante_id": "SUP_18_0029-K3-V",
+          "zona": "SUPERIOR",
+          "configuracion": 3,
+          "asientos": 3,
+          "orientacion": "V",
+          "x": 359.9791666666667,
+          "y": 142.60416666666666,
+          "ancho_svg": 16.041666666666668,
+          "alto_svg": 24.791666666666668,
+          "rect_svg": {
+            "x": 359.9791666666667,
+            "y": 142.60416666666666,
+            "ancho": 16.041666666666668,
+            "alto": 24.791666666666668
+          },
+          "ancho_env_m_estimado": 1.1,
+          "profundidad_env_m_estimada": 1.7,
+          "area_env_m2_estimada": 1.87,
+          "mesa_svg": {
+            "x": 359.9791666666667,
+            "y": 142.60416666666666,
+            "ancho": 8.75,
+            "alto": 17.5
+          },
+          "sillas_svg": [
+            {
+              "x": 368.7291666666667,
+              "y": 143.69791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 368.7291666666667,
+              "y": 152.44791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 361.0729166666667,
+              "y": 160.10416666666666,
+              "ancho": 6.5625,
+              "alto": 7.291666666666667
+            }
+          ],
+          "tipo": "inventario_existente_asignado"
+        },
+        {
+          "id": "SUP_18_0030",
+          "variante_id": "SUP_18_0030-K3-V",
+          "zona": "SUPERIOR",
+          "configuracion": 3,
+          "asientos": 3,
+          "orientacion": "V",
+          "x": 377.9791666666667,
+          "y": 142.60416666666666,
+          "ancho_svg": 16.041666666666668,
+          "alto_svg": 24.791666666666668,
+          "rect_svg": {
+            "x": 377.9791666666667,
+            "y": 142.60416666666666,
+            "ancho": 16.041666666666668,
+            "alto": 24.791666666666668
+          },
+          "ancho_env_m_estimado": 1.1,
+          "profundidad_env_m_estimada": 1.7,
+          "area_env_m2_estimada": 1.87,
+          "mesa_svg": {
+            "x": 377.9791666666667,
+            "y": 142.60416666666666,
+            "ancho": 8.75,
+            "alto": 17.5
+          },
+          "sillas_svg": [
+            {
+              "x": 386.7291666666667,
+              "y": 143.69791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 386.7291666666667,
+              "y": 152.44791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 379.0729166666667,
+              "y": 160.10416666666666,
+              "ancho": 6.5625,
+              "alto": 7.291666666666667
+            }
+          ],
+          "tipo": "inventario_existente_asignado"
+        },
+        {
+          "id": "SUP_18_0031",
+          "variante_id": "SUP_18_0031-K3-V",
+          "zona": "SUPERIOR",
+          "configuracion": 3,
+          "asientos": 3,
+          "orientacion": "V",
+          "x": 395.9791666666667,
+          "y": 142.60416666666666,
+          "ancho_svg": 16.041666666666668,
+          "alto_svg": 24.791666666666668,
+          "rect_svg": {
+            "x": 395.9791666666667,
+            "y": 142.60416666666666,
+            "ancho": 16.041666666666668,
+            "alto": 24.791666666666668
+          },
+          "ancho_env_m_estimado": 1.1,
+          "profundidad_env_m_estimada": 1.7,
+          "area_env_m2_estimada": 1.87,
+          "mesa_svg": {
+            "x": 395.9791666666667,
+            "y": 142.60416666666666,
+            "ancho": 8.75,
+            "alto": 17.5
+          },
+          "sillas_svg": [
+            {
+              "x": 404.7291666666667,
+              "y": 143.69791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 404.7291666666667,
+              "y": 152.44791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 397.0729166666667,
+              "y": 160.10416666666666,
+              "ancho": 6.5625,
+              "alto": 7.291666666666667
+            }
+          ],
+          "tipo": "inventario_existente_asignado"
+        },
+        {
+          "id": "SUP_18_0032",
+          "variante_id": "SUP_18_0032-K3-V",
+          "zona": "SUPERIOR",
+          "configuracion": 3,
+          "asientos": 3,
+          "orientacion": "V",
+          "x": 413.9791666666667,
+          "y": 142.60416666666666,
+          "ancho_svg": 16.041666666666668,
+          "alto_svg": 24.791666666666668,
+          "rect_svg": {
+            "x": 413.9791666666667,
+            "y": 142.60416666666666,
+            "ancho": 16.041666666666668,
+            "alto": 24.791666666666668
+          },
+          "ancho_env_m_estimado": 1.1,
+          "profundidad_env_m_estimada": 1.7,
+          "area_env_m2_estimada": 1.87,
+          "mesa_svg": {
+            "x": 413.9791666666667,
+            "y": 142.60416666666666,
+            "ancho": 8.75,
+            "alto": 17.5
+          },
+          "sillas_svg": [
+            {
+              "x": 422.7291666666667,
+              "y": 143.69791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 422.7291666666667,
+              "y": 152.44791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 415.0729166666667,
+              "y": 160.10416666666666,
+              "ancho": 6.5625,
+              "alto": 7.291666666666667
+            }
+          ],
+          "tipo": "inventario_existente_asignado"
+        },
+        {
+          "id": "SUP_18_0033",
+          "variante_id": "SUP_18_0033-K3-V",
+          "zona": "SUPERIOR",
+          "configuracion": 3,
+          "asientos": 3,
+          "orientacion": "V",
+          "x": 431.9791666666667,
+          "y": 142.60416666666666,
+          "ancho_svg": 16.041666666666668,
+          "alto_svg": 24.791666666666668,
+          "rect_svg": {
+            "x": 431.9791666666667,
+            "y": 142.60416666666666,
+            "ancho": 16.041666666666668,
+            "alto": 24.791666666666668
+          },
+          "ancho_env_m_estimado": 1.1,
+          "profundidad_env_m_estimada": 1.7,
+          "area_env_m2_estimada": 1.87,
+          "mesa_svg": {
+            "x": 431.9791666666667,
+            "y": 142.60416666666666,
+            "ancho": 8.75,
+            "alto": 17.5
+          },
+          "sillas_svg": [
+            {
+              "x": 440.7291666666667,
+              "y": 143.69791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 440.7291666666667,
+              "y": 152.44791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 433.0729166666667,
+              "y": 160.10416666666666,
+              "ancho": 6.5625,
+              "alto": 7.291666666666667
+            }
+          ],
+          "tipo": "inventario_existente_asignado"
+        },
+        {
+          "id": "SUP_18_0034",
+          "variante_id": "SUP_18_0034-K2-V",
+          "zona": "SUPERIOR",
+          "configuracion": 2,
+          "asientos": 2,
+          "orientacion": "V",
+          "x": 449.9791666666667,
+          "y": 146.25,
+          "ancho_svg": 16.041666666666668,
+          "alto_svg": 17.5,
+          "rect_svg": {
+            "x": 449.9791666666667,
+            "y": 146.25,
+            "ancho": 16.041666666666668,
+            "alto": 17.5
+          },
+          "ancho_env_m_estimado": 1.1,
+          "profundidad_env_m_estimada": 1.2,
+          "area_env_m2_estimada": 1.32,
+          "mesa_svg": {
+            "x": 449.9791666666667,
+            "y": 146.25,
+            "ancho": 8.75,
+            "alto": 17.5
+          },
+          "sillas_svg": [
+            {
+              "x": 458.7291666666667,
+              "y": 147.34375,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 458.7291666666667,
+              "y": 156.09375,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            }
+          ],
+          "tipo": "inventario_existente_asignado"
+        },
+        {
+          "id": "SUP_18_0053",
+          "variante_id": "SUP_18_0053-K3-V",
+          "zona": "SUPERIOR",
+          "configuracion": 3,
+          "asientos": 3,
+          "orientacion": "V",
+          "x": 467.9791666666667,
+          "y": 160.60416666666666,
+          "ancho_svg": 16.041666666666668,
+          "alto_svg": 24.791666666666668,
+          "rect_svg": {
+            "x": 467.9791666666667,
+            "y": 160.60416666666666,
+            "ancho": 16.041666666666668,
+            "alto": 24.791666666666668
+          },
+          "ancho_env_m_estimado": 1.1,
+          "profundidad_env_m_estimada": 1.7,
+          "area_env_m2_estimada": 1.87,
+          "mesa_svg": {
+            "x": 467.9791666666667,
+            "y": 160.60416666666666,
+            "ancho": 8.75,
+            "alto": 17.5
+          },
+          "sillas_svg": [
+            {
+              "x": 476.7291666666667,
+              "y": 161.69791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 476.7291666666667,
+              "y": 170.44791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 469.0729166666667,
+              "y": 178.10416666666666,
+              "ancho": 6.5625,
+              "alto": 7.291666666666667
+            }
+          ],
+          "tipo": "inventario_existente_asignado"
+        },
+        {
+          "id": "SUP_18_0059",
+          "variante_id": "SUP_18_0059-K3-V",
+          "zona": "SUPERIOR",
+          "configuracion": 3,
+          "asientos": 3,
+          "orientacion": "V",
+          "x": 251.97916666666666,
+          "y": 178.60416666666666,
+          "ancho_svg": 16.041666666666668,
+          "alto_svg": 24.791666666666668,
+          "rect_svg": {
+            "x": 251.97916666666666,
+            "y": 178.60416666666666,
+            "ancho": 16.041666666666668,
+            "alto": 24.791666666666668
+          },
+          "ancho_env_m_estimado": 1.1,
+          "profundidad_env_m_estimada": 1.7,
+          "area_env_m2_estimada": 1.87,
+          "mesa_svg": {
+            "x": 251.97916666666666,
+            "y": 178.60416666666666,
+            "ancho": 8.75,
+            "alto": 17.5
+          },
+          "sillas_svg": [
+            {
+              "x": 260.72916666666663,
+              "y": 179.69791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 260.72916666666663,
+              "y": 188.44791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 253.07291666666663,
+              "y": 196.10416666666666,
+              "ancho": 6.5625,
+              "alto": 7.291666666666667
+            }
+          ],
+          "tipo": "inventario_existente_asignado"
+        },
+        {
+          "id": "SUP_18_0060",
+          "variante_id": "SUP_18_0060-K3-V",
+          "zona": "SUPERIOR",
+          "configuracion": 3,
+          "asientos": 3,
+          "orientacion": "V",
+          "x": 269.9791666666667,
+          "y": 178.60416666666666,
+          "ancho_svg": 16.041666666666668,
+          "alto_svg": 24.791666666666668,
+          "rect_svg": {
+            "x": 269.9791666666667,
+            "y": 178.60416666666666,
+            "ancho": 16.041666666666668,
+            "alto": 24.791666666666668
+          },
+          "ancho_env_m_estimado": 1.1,
+          "profundidad_env_m_estimada": 1.7,
+          "area_env_m2_estimada": 1.87,
+          "mesa_svg": {
+            "x": 269.9791666666667,
+            "y": 178.60416666666666,
+            "ancho": 8.75,
+            "alto": 17.5
+          },
+          "sillas_svg": [
+            {
+              "x": 278.7291666666667,
+              "y": 179.69791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 278.7291666666667,
+              "y": 188.44791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 271.0729166666667,
+              "y": 196.10416666666666,
+              "ancho": 6.5625,
+              "alto": 7.291666666666667
+            }
+          ],
+          "tipo": "inventario_existente_asignado"
+        },
+        {
+          "id": "SUP_18_0061",
+          "variante_id": "SUP_18_0061-K3-V",
+          "zona": "SUPERIOR",
+          "configuracion": 3,
+          "asientos": 3,
+          "orientacion": "V",
+          "x": 287.9791666666667,
+          "y": 178.60416666666666,
+          "ancho_svg": 16.041666666666668,
+          "alto_svg": 24.791666666666668,
+          "rect_svg": {
+            "x": 287.9791666666667,
+            "y": 178.60416666666666,
+            "ancho": 16.041666666666668,
+            "alto": 24.791666666666668
+          },
+          "ancho_env_m_estimado": 1.1,
+          "profundidad_env_m_estimada": 1.7,
+          "area_env_m2_estimada": 1.87,
+          "mesa_svg": {
+            "x": 287.9791666666667,
+            "y": 178.60416666666666,
+            "ancho": 8.75,
+            "alto": 17.5
+          },
+          "sillas_svg": [
+            {
+              "x": 296.7291666666667,
+              "y": 179.69791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 296.7291666666667,
+              "y": 188.44791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 289.0729166666667,
+              "y": 196.10416666666666,
+              "ancho": 6.5625,
+              "alto": 7.291666666666667
+            }
+          ],
+          "tipo": "inventario_existente_asignado"
+        },
+        {
+          "id": "SUP_18_0064",
+          "variante_id": "SUP_18_0064-K3-V",
+          "zona": "SUPERIOR",
+          "configuracion": 3,
+          "asientos": 3,
+          "orientacion": "V",
+          "x": 341.9791666666667,
+          "y": 178.60416666666666,
+          "ancho_svg": 16.041666666666668,
+          "alto_svg": 24.791666666666668,
+          "rect_svg": {
+            "x": 341.9791666666667,
+            "y": 178.60416666666666,
+            "ancho": 16.041666666666668,
+            "alto": 24.791666666666668
+          },
+          "ancho_env_m_estimado": 1.1,
+          "profundidad_env_m_estimada": 1.7,
+          "area_env_m2_estimada": 1.87,
+          "mesa_svg": {
+            "x": 341.9791666666667,
+            "y": 178.60416666666666,
+            "ancho": 8.75,
+            "alto": 17.5
+          },
+          "sillas_svg": [
+            {
+              "x": 350.7291666666667,
+              "y": 179.69791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 350.7291666666667,
+              "y": 188.44791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 343.0729166666667,
+              "y": 196.10416666666666,
+              "ancho": 6.5625,
+              "alto": 7.291666666666667
+            }
+          ],
+          "tipo": "inventario_existente_asignado"
+        },
+        {
+          "id": "SUP_18_0065",
+          "variante_id": "SUP_18_0065-K3-V",
+          "zona": "SUPERIOR",
+          "configuracion": 3,
+          "asientos": 3,
+          "orientacion": "V",
+          "x": 359.9791666666667,
+          "y": 178.60416666666666,
+          "ancho_svg": 16.041666666666668,
+          "alto_svg": 24.791666666666668,
+          "rect_svg": {
+            "x": 359.9791666666667,
+            "y": 178.60416666666666,
+            "ancho": 16.041666666666668,
+            "alto": 24.791666666666668
+          },
+          "ancho_env_m_estimado": 1.1,
+          "profundidad_env_m_estimada": 1.7,
+          "area_env_m2_estimada": 1.87,
+          "mesa_svg": {
+            "x": 359.9791666666667,
+            "y": 178.60416666666666,
+            "ancho": 8.75,
+            "alto": 17.5
+          },
+          "sillas_svg": [
+            {
+              "x": 368.7291666666667,
+              "y": 179.69791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 368.7291666666667,
+              "y": 188.44791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 361.0729166666667,
+              "y": 196.10416666666666,
+              "ancho": 6.5625,
+              "alto": 7.291666666666667
+            }
+          ],
+          "tipo": "inventario_existente_asignado"
+        },
+        {
+          "id": "SUP_18_0066",
+          "variante_id": "SUP_18_0066-K3-V",
+          "zona": "SUPERIOR",
+          "configuracion": 3,
+          "asientos": 3,
+          "orientacion": "V",
+          "x": 377.9791666666667,
+          "y": 178.60416666666666,
+          "ancho_svg": 16.041666666666668,
+          "alto_svg": 24.791666666666668,
+          "rect_svg": {
+            "x": 377.9791666666667,
+            "y": 178.60416666666666,
+            "ancho": 16.041666666666668,
+            "alto": 24.791666666666668
+          },
+          "ancho_env_m_estimado": 1.1,
+          "profundidad_env_m_estimada": 1.7,
+          "area_env_m2_estimada": 1.87,
+          "mesa_svg": {
+            "x": 377.9791666666667,
+            "y": 178.60416666666666,
+            "ancho": 8.75,
+            "alto": 17.5
+          },
+          "sillas_svg": [
+            {
+              "x": 386.7291666666667,
+              "y": 179.69791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 386.7291666666667,
+              "y": 188.44791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 379.0729166666667,
+              "y": 196.10416666666666,
+              "ancho": 6.5625,
+              "alto": 7.291666666666667
+            }
+          ],
+          "tipo": "inventario_existente_asignado"
+        },
+        {
+          "id": "SUP_18_0067",
+          "variante_id": "SUP_18_0067-K3-V",
+          "zona": "SUPERIOR",
+          "configuracion": 3,
+          "asientos": 3,
+          "orientacion": "V",
+          "x": 395.9791666666667,
+          "y": 178.60416666666666,
+          "ancho_svg": 16.041666666666668,
+          "alto_svg": 24.791666666666668,
+          "rect_svg": {
+            "x": 395.9791666666667,
+            "y": 178.60416666666666,
+            "ancho": 16.041666666666668,
+            "alto": 24.791666666666668
+          },
+          "ancho_env_m_estimado": 1.1,
+          "profundidad_env_m_estimada": 1.7,
+          "area_env_m2_estimada": 1.87,
+          "mesa_svg": {
+            "x": 395.9791666666667,
+            "y": 178.60416666666666,
+            "ancho": 8.75,
+            "alto": 17.5
+          },
+          "sillas_svg": [
+            {
+              "x": 404.7291666666667,
+              "y": 179.69791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 404.7291666666667,
+              "y": 188.44791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 397.0729166666667,
+              "y": 196.10416666666666,
+              "ancho": 6.5625,
+              "alto": 7.291666666666667
+            }
+          ],
+          "tipo": "inventario_existente_asignado"
+        },
+        {
+          "id": "SUP_18_0068",
+          "variante_id": "SUP_18_0068-K3-V",
+          "zona": "SUPERIOR",
+          "configuracion": 3,
+          "asientos": 3,
+          "orientacion": "V",
+          "x": 413.9791666666667,
+          "y": 178.60416666666666,
+          "ancho_svg": 16.041666666666668,
+          "alto_svg": 24.791666666666668,
+          "rect_svg": {
+            "x": 413.9791666666667,
+            "y": 178.60416666666666,
+            "ancho": 16.041666666666668,
+            "alto": 24.791666666666668
+          },
+          "ancho_env_m_estimado": 1.1,
+          "profundidad_env_m_estimada": 1.7,
+          "area_env_m2_estimada": 1.87,
+          "mesa_svg": {
+            "x": 413.9791666666667,
+            "y": 178.60416666666666,
+            "ancho": 8.75,
+            "alto": 17.5
+          },
+          "sillas_svg": [
+            {
+              "x": 422.7291666666667,
+              "y": 179.69791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 422.7291666666667,
+              "y": 188.44791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 415.0729166666667,
+              "y": 196.10416666666666,
+              "ancho": 6.5625,
+              "alto": 7.291666666666667
+            }
+          ],
+          "tipo": "inventario_existente_asignado"
+        },
+        {
+          "id": "SUP_18_0069",
+          "variante_id": "SUP_18_0069-K3-V",
+          "zona": "SUPERIOR",
+          "configuracion": 3,
+          "asientos": 3,
+          "orientacion": "V",
+          "x": 431.9791666666667,
+          "y": 178.60416666666666,
+          "ancho_svg": 16.041666666666668,
+          "alto_svg": 24.791666666666668,
+          "rect_svg": {
+            "x": 431.9791666666667,
+            "y": 178.60416666666666,
+            "ancho": 16.041666666666668,
+            "alto": 24.791666666666668
+          },
+          "ancho_env_m_estimado": 1.1,
+          "profundidad_env_m_estimada": 1.7,
+          "area_env_m2_estimada": 1.87,
+          "mesa_svg": {
+            "x": 431.9791666666667,
+            "y": 178.60416666666666,
+            "ancho": 8.75,
+            "alto": 17.5
+          },
+          "sillas_svg": [
+            {
+              "x": 440.7291666666667,
+              "y": 179.69791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 440.7291666666667,
+              "y": 188.44791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 433.0729166666667,
+              "y": 196.10416666666666,
+              "ancho": 6.5625,
+              "alto": 7.291666666666667
+            }
+          ],
+          "tipo": "inventario_existente_asignado"
+        },
+        {
+          "id": "SUP_18_0070",
+          "variante_id": "SUP_18_0070-K3-V",
+          "zona": "SUPERIOR",
+          "configuracion": 3,
+          "asientos": 3,
+          "orientacion": "V",
+          "x": 449.9791666666667,
+          "y": 178.60416666666666,
+          "ancho_svg": 16.041666666666668,
+          "alto_svg": 24.791666666666668,
+          "rect_svg": {
+            "x": 449.9791666666667,
+            "y": 178.60416666666666,
+            "ancho": 16.041666666666668,
+            "alto": 24.791666666666668
+          },
+          "ancho_env_m_estimado": 1.1,
+          "profundidad_env_m_estimada": 1.7,
+          "area_env_m2_estimada": 1.87,
+          "mesa_svg": {
+            "x": 449.9791666666667,
+            "y": 178.60416666666666,
+            "ancho": 8.75,
+            "alto": 17.5
+          },
+          "sillas_svg": [
+            {
+              "x": 458.7291666666667,
+              "y": 179.69791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 458.7291666666667,
+              "y": 188.44791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 451.0729166666667,
+              "y": 196.10416666666666,
+              "ancho": 6.5625,
+              "alto": 7.291666666666667
+            }
+          ],
+          "tipo": "inventario_existente_asignado"
+        },
+        {
+          "id": "INF_18_0023",
+          "variante_id": "INF_18_0023-K3-V",
+          "zona": "INFERIOR",
+          "configuracion": 3,
+          "asientos": 3,
+          "orientacion": "V",
+          "x": 201.97916666666666,
+          "y": 238.60416666666666,
+          "ancho_svg": 16.041666666666668,
+          "alto_svg": 24.791666666666668,
+          "rect_svg": {
+            "x": 201.97916666666666,
+            "y": 238.60416666666666,
+            "ancho": 16.041666666666668,
+            "alto": 24.791666666666668
+          },
+          "ancho_env_m_estimado": 1.1,
+          "profundidad_env_m_estimada": 1.7,
+          "area_env_m2_estimada": 1.87,
+          "mesa_svg": {
+            "x": 201.97916666666666,
+            "y": 238.60416666666666,
+            "ancho": 8.75,
+            "alto": 17.5
+          },
+          "sillas_svg": [
+            {
+              "x": 210.72916666666666,
+              "y": 239.69791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 210.72916666666666,
+              "y": 248.44791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 203.07291666666666,
+              "y": 256.10416666666663,
+              "ancho": 6.5625,
+              "alto": 7.291666666666667
+            }
+          ],
+          "tipo": "inventario_existente_asignado"
+        },
+        {
+          "id": "INF_18_0024",
+          "variante_id": "INF_18_0024-K3-V",
+          "zona": "INFERIOR",
+          "configuracion": 3,
+          "asientos": 3,
+          "orientacion": "V",
+          "x": 219.97916666666666,
+          "y": 238.60416666666666,
+          "ancho_svg": 16.041666666666668,
+          "alto_svg": 24.791666666666668,
+          "rect_svg": {
+            "x": 219.97916666666666,
+            "y": 238.60416666666666,
+            "ancho": 16.041666666666668,
+            "alto": 24.791666666666668
+          },
+          "ancho_env_m_estimado": 1.1,
+          "profundidad_env_m_estimada": 1.7,
+          "area_env_m2_estimada": 1.87,
+          "mesa_svg": {
+            "x": 219.97916666666666,
+            "y": 238.60416666666666,
+            "ancho": 8.75,
+            "alto": 17.5
+          },
+          "sillas_svg": [
+            {
+              "x": 228.72916666666666,
+              "y": 239.69791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 228.72916666666666,
+              "y": 248.44791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 221.07291666666666,
+              "y": 256.10416666666663,
+              "ancho": 6.5625,
+              "alto": 7.291666666666667
+            }
+          ],
+          "tipo": "inventario_existente_asignado"
+        },
+        {
+          "id": "INF_18_0025",
+          "variante_id": "INF_18_0025-K3-V",
+          "zona": "INFERIOR",
+          "configuracion": 3,
+          "asientos": 3,
+          "orientacion": "V",
+          "x": 237.97916666666666,
+          "y": 238.60416666666666,
+          "ancho_svg": 16.041666666666668,
+          "alto_svg": 24.791666666666668,
+          "rect_svg": {
+            "x": 237.97916666666666,
+            "y": 238.60416666666666,
+            "ancho": 16.041666666666668,
+            "alto": 24.791666666666668
+          },
+          "ancho_env_m_estimado": 1.1,
+          "profundidad_env_m_estimada": 1.7,
+          "area_env_m2_estimada": 1.87,
+          "mesa_svg": {
+            "x": 237.97916666666666,
+            "y": 238.60416666666666,
+            "ancho": 8.75,
+            "alto": 17.5
+          },
+          "sillas_svg": [
+            {
+              "x": 246.72916666666666,
+              "y": 239.69791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 246.72916666666666,
+              "y": 248.44791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 239.07291666666666,
+              "y": 256.10416666666663,
+              "ancho": 6.5625,
+              "alto": 7.291666666666667
+            }
+          ],
+          "tipo": "inventario_existente_asignado"
+        },
+        {
+          "id": "INF_18_0026",
+          "variante_id": "INF_18_0026-K3-V",
+          "zona": "INFERIOR",
+          "configuracion": 3,
+          "asientos": 3,
+          "orientacion": "V",
+          "x": 255.97916666666666,
+          "y": 238.60416666666666,
+          "ancho_svg": 16.041666666666668,
+          "alto_svg": 24.791666666666668,
+          "rect_svg": {
+            "x": 255.97916666666666,
+            "y": 238.60416666666666,
+            "ancho": 16.041666666666668,
+            "alto": 24.791666666666668
+          },
+          "ancho_env_m_estimado": 1.1,
+          "profundidad_env_m_estimada": 1.7,
+          "area_env_m2_estimada": 1.87,
+          "mesa_svg": {
+            "x": 255.97916666666666,
+            "y": 238.60416666666666,
+            "ancho": 8.75,
+            "alto": 17.5
+          },
+          "sillas_svg": [
+            {
+              "x": 264.72916666666663,
+              "y": 239.69791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 264.72916666666663,
+              "y": 248.44791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 257.07291666666663,
+              "y": 256.10416666666663,
+              "ancho": 6.5625,
+              "alto": 7.291666666666667
+            }
+          ],
+          "tipo": "inventario_existente_asignado"
+        },
+        {
+          "id": "INF_18_0027",
+          "variante_id": "INF_18_0027-K3-V",
+          "zona": "INFERIOR",
+          "configuracion": 3,
+          "asientos": 3,
+          "orientacion": "V",
+          "x": 273.9791666666667,
+          "y": 238.60416666666666,
+          "ancho_svg": 16.041666666666668,
+          "alto_svg": 24.791666666666668,
+          "rect_svg": {
+            "x": 273.9791666666667,
+            "y": 238.60416666666666,
+            "ancho": 16.041666666666668,
+            "alto": 24.791666666666668
+          },
+          "ancho_env_m_estimado": 1.1,
+          "profundidad_env_m_estimada": 1.7,
+          "area_env_m2_estimada": 1.87,
+          "mesa_svg": {
+            "x": 273.9791666666667,
+            "y": 238.60416666666666,
+            "ancho": 8.75,
+            "alto": 17.5
+          },
+          "sillas_svg": [
+            {
+              "x": 282.7291666666667,
+              "y": 239.69791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 282.7291666666667,
+              "y": 248.44791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 275.0729166666667,
+              "y": 256.10416666666663,
+              "ancho": 6.5625,
+              "alto": 7.291666666666667
+            }
+          ],
+          "tipo": "inventario_existente_asignado"
+        },
+        {
+          "id": "INF_18_0028",
+          "variante_id": "INF_18_0028-K3-V",
+          "zona": "INFERIOR",
+          "configuracion": 3,
+          "asientos": 3,
+          "orientacion": "V",
+          "x": 291.9791666666667,
+          "y": 238.60416666666666,
+          "ancho_svg": 16.041666666666668,
+          "alto_svg": 24.791666666666668,
+          "rect_svg": {
+            "x": 291.9791666666667,
+            "y": 238.60416666666666,
+            "ancho": 16.041666666666668,
+            "alto": 24.791666666666668
+          },
+          "ancho_env_m_estimado": 1.1,
+          "profundidad_env_m_estimada": 1.7,
+          "area_env_m2_estimada": 1.87,
+          "mesa_svg": {
+            "x": 291.9791666666667,
+            "y": 238.60416666666666,
+            "ancho": 8.75,
+            "alto": 17.5
+          },
+          "sillas_svg": [
+            {
+              "x": 300.7291666666667,
+              "y": 239.69791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 300.7291666666667,
+              "y": 248.44791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 293.0729166666667,
+              "y": 256.10416666666663,
+              "ancho": 6.5625,
+              "alto": 7.291666666666667
+            }
+          ],
+          "tipo": "inventario_existente_asignado"
+        },
+        {
+          "id": "INF_18_0030",
+          "variante_id": "INF_18_0030-K3-V",
+          "zona": "INFERIOR",
+          "configuracion": 3,
+          "asientos": 3,
+          "orientacion": "V",
+          "x": 327.9791666666667,
+          "y": 238.60416666666666,
+          "ancho_svg": 16.041666666666668,
+          "alto_svg": 24.791666666666668,
+          "rect_svg": {
+            "x": 327.9791666666667,
+            "y": 238.60416666666666,
+            "ancho": 16.041666666666668,
+            "alto": 24.791666666666668
+          },
+          "ancho_env_m_estimado": 1.1,
+          "profundidad_env_m_estimada": 1.7,
+          "area_env_m2_estimada": 1.87,
+          "mesa_svg": {
+            "x": 327.9791666666667,
+            "y": 238.60416666666666,
+            "ancho": 8.75,
+            "alto": 17.5
+          },
+          "sillas_svg": [
+            {
+              "x": 336.7291666666667,
+              "y": 239.69791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 336.7291666666667,
+              "y": 248.44791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 329.0729166666667,
+              "y": 256.10416666666663,
+              "ancho": 6.5625,
+              "alto": 7.291666666666667
+            }
+          ],
+          "tipo": "inventario_existente_asignado"
+        },
+        {
+          "id": "INF_18_0031",
+          "variante_id": "INF_18_0031-K3-V",
+          "zona": "INFERIOR",
+          "configuracion": 3,
+          "asientos": 3,
+          "orientacion": "V",
+          "x": 345.9791666666667,
+          "y": 238.60416666666666,
+          "ancho_svg": 16.041666666666668,
+          "alto_svg": 24.791666666666668,
+          "rect_svg": {
+            "x": 345.9791666666667,
+            "y": 238.60416666666666,
+            "ancho": 16.041666666666668,
+            "alto": 24.791666666666668
+          },
+          "ancho_env_m_estimado": 1.1,
+          "profundidad_env_m_estimada": 1.7,
+          "area_env_m2_estimada": 1.87,
+          "mesa_svg": {
+            "x": 345.9791666666667,
+            "y": 238.60416666666666,
+            "ancho": 8.75,
+            "alto": 17.5
+          },
+          "sillas_svg": [
+            {
+              "x": 354.7291666666667,
+              "y": 239.69791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 354.7291666666667,
+              "y": 248.44791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 347.0729166666667,
+              "y": 256.10416666666663,
+              "ancho": 6.5625,
+              "alto": 7.291666666666667
+            }
+          ],
+          "tipo": "inventario_existente_asignado"
+        },
+        {
+          "id": "INF_18_0034",
+          "variante_id": "INF_18_0034-K3-V",
+          "zona": "INFERIOR",
+          "configuracion": 3,
+          "asientos": 3,
+          "orientacion": "V",
+          "x": 399.9791666666667,
+          "y": 238.60416666666666,
+          "ancho_svg": 16.041666666666668,
+          "alto_svg": 24.791666666666668,
+          "rect_svg": {
+            "x": 399.9791666666667,
+            "y": 238.60416666666666,
+            "ancho": 16.041666666666668,
+            "alto": 24.791666666666668
+          },
+          "ancho_env_m_estimado": 1.1,
+          "profundidad_env_m_estimada": 1.7,
+          "area_env_m2_estimada": 1.87,
+          "mesa_svg": {
+            "x": 399.9791666666667,
+            "y": 238.60416666666666,
+            "ancho": 8.75,
+            "alto": 17.5
+          },
+          "sillas_svg": [
+            {
+              "x": 408.7291666666667,
+              "y": 239.69791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 408.7291666666667,
+              "y": 248.44791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 401.0729166666667,
+              "y": 256.10416666666663,
+              "ancho": 6.5625,
+              "alto": 7.291666666666667
+            }
+          ],
+          "tipo": "inventario_existente_asignado"
+        },
+        {
+          "id": "INF_18_0035",
+          "variante_id": "INF_18_0035-K3-V",
+          "zona": "INFERIOR",
+          "configuracion": 3,
+          "asientos": 3,
+          "orientacion": "V",
+          "x": 417.9791666666667,
+          "y": 238.60416666666666,
+          "ancho_svg": 16.041666666666668,
+          "alto_svg": 24.791666666666668,
+          "rect_svg": {
+            "x": 417.9791666666667,
+            "y": 238.60416666666666,
+            "ancho": 16.041666666666668,
+            "alto": 24.791666666666668
+          },
+          "ancho_env_m_estimado": 1.1,
+          "profundidad_env_m_estimada": 1.7,
+          "area_env_m2_estimada": 1.87,
+          "mesa_svg": {
+            "x": 417.9791666666667,
+            "y": 238.60416666666666,
+            "ancho": 8.75,
+            "alto": 17.5
+          },
+          "sillas_svg": [
+            {
+              "x": 426.7291666666667,
+              "y": 239.69791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 426.7291666666667,
+              "y": 248.44791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 419.0729166666667,
+              "y": 256.10416666666663,
+              "ancho": 6.5625,
+              "alto": 7.291666666666667
+            }
+          ],
+          "tipo": "inventario_existente_asignado"
+        },
+        {
+          "id": "INF_18_0036",
+          "variante_id": "INF_18_0036-K3-V",
+          "zona": "INFERIOR",
+          "configuracion": 3,
+          "asientos": 3,
+          "orientacion": "V",
+          "x": 435.9791666666667,
+          "y": 238.60416666666666,
+          "ancho_svg": 16.041666666666668,
+          "alto_svg": 24.791666666666668,
+          "rect_svg": {
+            "x": 435.9791666666667,
+            "y": 238.60416666666666,
+            "ancho": 16.041666666666668,
+            "alto": 24.791666666666668
+          },
+          "ancho_env_m_estimado": 1.1,
+          "profundidad_env_m_estimada": 1.7,
+          "area_env_m2_estimada": 1.87,
+          "mesa_svg": {
+            "x": 435.9791666666667,
+            "y": 238.60416666666666,
+            "ancho": 8.75,
+            "alto": 17.5
+          },
+          "sillas_svg": [
+            {
+              "x": 444.7291666666667,
+              "y": 239.69791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 444.7291666666667,
+              "y": 248.44791666666666,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 437.0729166666667,
+              "y": 256.10416666666663,
+              "ancho": 6.5625,
+              "alto": 7.291666666666667
+            }
+          ],
+          "tipo": "inventario_existente_asignado"
+        },
+        {
+          "id": "INF_18_0048",
+          "variante_id": "INF_18_0048-K3-V",
+          "zona": "INFERIOR",
+          "configuracion": 3,
+          "asientos": 3,
+          "orientacion": "V",
+          "x": 309.9791666666667,
+          "y": 256.6041666666667,
+          "ancho_svg": 16.041666666666668,
+          "alto_svg": 24.791666666666668,
+          "rect_svg": {
+            "x": 309.9791666666667,
+            "y": 256.6041666666667,
+            "ancho": 16.041666666666668,
+            "alto": 24.791666666666668
+          },
+          "ancho_env_m_estimado": 1.1,
+          "profundidad_env_m_estimada": 1.7,
+          "area_env_m2_estimada": 1.87,
+          "mesa_svg": {
+            "x": 309.9791666666667,
+            "y": 256.6041666666667,
+            "ancho": 8.75,
+            "alto": 17.5
+          },
+          "sillas_svg": [
+            {
+              "x": 318.7291666666667,
+              "y": 257.6979166666667,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 318.7291666666667,
+              "y": 266.4479166666667,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 311.0729166666667,
+              "y": 274.1041666666667,
+              "ancho": 6.5625,
+              "alto": 7.291666666666667
+            }
+          ],
+          "tipo": "inventario_existente_asignado"
+        },
+        {
+          "id": "INF_18_0051",
+          "variante_id": "INF_18_0051-K3-V",
+          "zona": "INFERIOR",
+          "configuracion": 3,
+          "asientos": 3,
+          "orientacion": "V",
+          "x": 363.9791666666667,
+          "y": 256.6041666666667,
+          "ancho_svg": 16.041666666666668,
+          "alto_svg": 24.791666666666668,
+          "rect_svg": {
+            "x": 363.9791666666667,
+            "y": 256.6041666666667,
+            "ancho": 16.041666666666668,
+            "alto": 24.791666666666668
+          },
+          "ancho_env_m_estimado": 1.1,
+          "profundidad_env_m_estimada": 1.7,
+          "area_env_m2_estimada": 1.87,
+          "mesa_svg": {
+            "x": 363.9791666666667,
+            "y": 256.6041666666667,
+            "ancho": 8.75,
+            "alto": 17.5
+          },
+          "sillas_svg": [
+            {
+              "x": 372.7291666666667,
+              "y": 257.6979166666667,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 372.7291666666667,
+              "y": 266.4479166666667,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 365.0729166666667,
+              "y": 274.1041666666667,
+              "ancho": 6.5625,
+              "alto": 7.291666666666667
+            }
+          ],
+          "tipo": "inventario_existente_asignado"
+        },
+        {
+          "id": "INF_18_0052",
+          "variante_id": "INF_18_0052-K3-V",
+          "zona": "INFERIOR",
+          "configuracion": 3,
+          "asientos": 3,
+          "orientacion": "V",
+          "x": 381.9791666666667,
+          "y": 256.6041666666667,
+          "ancho_svg": 16.041666666666668,
+          "alto_svg": 24.791666666666668,
+          "rect_svg": {
+            "x": 381.9791666666667,
+            "y": 256.6041666666667,
+            "ancho": 16.041666666666668,
+            "alto": 24.791666666666668
+          },
+          "ancho_env_m_estimado": 1.1,
+          "profundidad_env_m_estimada": 1.7,
+          "area_env_m2_estimada": 1.87,
+          "mesa_svg": {
+            "x": 381.9791666666667,
+            "y": 256.6041666666667,
+            "ancho": 8.75,
+            "alto": 17.5
+          },
+          "sillas_svg": [
+            {
+              "x": 390.7291666666667,
+              "y": 257.6979166666667,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 390.7291666666667,
+              "y": 266.4479166666667,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 383.0729166666667,
+              "y": 274.1041666666667,
+              "ancho": 6.5625,
+              "alto": 7.291666666666667
+            }
+          ],
+          "tipo": "inventario_existente_asignado"
+        },
+        {
+          "id": "INF_18_0056",
+          "variante_id": "INF_18_0056-K3-V",
+          "zona": "INFERIOR",
+          "configuracion": 3,
+          "asientos": 3,
+          "orientacion": "V",
+          "x": 453.9791666666667,
+          "y": 256.6041666666667,
+          "ancho_svg": 16.041666666666668,
+          "alto_svg": 24.791666666666668,
+          "rect_svg": {
+            "x": 453.9791666666667,
+            "y": 256.6041666666667,
+            "ancho": 16.041666666666668,
+            "alto": 24.791666666666668
+          },
+          "ancho_env_m_estimado": 1.1,
+          "profundidad_env_m_estimada": 1.7,
+          "area_env_m2_estimada": 1.87,
+          "mesa_svg": {
+            "x": 453.9791666666667,
+            "y": 256.6041666666667,
+            "ancho": 8.75,
+            "alto": 17.5
+          },
+          "sillas_svg": [
+            {
+              "x": 462.7291666666667,
+              "y": 257.6979166666667,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 462.7291666666667,
+              "y": 266.4479166666667,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 455.0729166666667,
+              "y": 274.1041666666667,
+              "ancho": 6.5625,
+              "alto": 7.291666666666667
+            }
+          ],
+          "tipo": "inventario_existente_asignado"
+        },
+        {
+          "id": "INF_18_0065",
+          "variante_id": "INF_18_0065-K3-V",
+          "zona": "INFERIOR",
+          "configuracion": 3,
+          "asientos": 3,
+          "orientacion": "V",
+          "x": 273.9791666666667,
+          "y": 274.6041666666667,
+          "ancho_svg": 16.041666666666668,
+          "alto_svg": 24.791666666666668,
+          "rect_svg": {
+            "x": 273.9791666666667,
+            "y": 274.6041666666667,
+            "ancho": 16.041666666666668,
+            "alto": 24.791666666666668
+          },
+          "ancho_env_m_estimado": 1.1,
+          "profundidad_env_m_estimada": 1.7,
+          "area_env_m2_estimada": 1.87,
+          "mesa_svg": {
+            "x": 273.9791666666667,
+            "y": 274.6041666666667,
+            "ancho": 8.75,
+            "alto": 17.5
+          },
+          "sillas_svg": [
+            {
+              "x": 282.7291666666667,
+              "y": 275.6979166666667,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 282.7291666666667,
+              "y": 284.4479166666667,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 275.0729166666667,
+              "y": 292.1041666666667,
+              "ancho": 6.5625,
+              "alto": 7.291666666666667
+            }
+          ],
+          "tipo": "inventario_existente_asignado"
+        },
+        {
+          "id": "INF_18_0066",
+          "variante_id": "INF_18_0066-K3-V",
+          "zona": "INFERIOR",
+          "configuracion": 3,
+          "asientos": 3,
+          "orientacion": "V",
+          "x": 291.9791666666667,
+          "y": 274.6041666666667,
+          "ancho_svg": 16.041666666666668,
+          "alto_svg": 24.791666666666668,
+          "rect_svg": {
+            "x": 291.9791666666667,
+            "y": 274.6041666666667,
+            "ancho": 16.041666666666668,
+            "alto": 24.791666666666668
+          },
+          "ancho_env_m_estimado": 1.1,
+          "profundidad_env_m_estimada": 1.7,
+          "area_env_m2_estimada": 1.87,
+          "mesa_svg": {
+            "x": 291.9791666666667,
+            "y": 274.6041666666667,
+            "ancho": 8.75,
+            "alto": 17.5
+          },
+          "sillas_svg": [
+            {
+              "x": 300.7291666666667,
+              "y": 275.6979166666667,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 300.7291666666667,
+              "y": 284.4479166666667,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 293.0729166666667,
+              "y": 292.1041666666667,
+              "ancho": 6.5625,
+              "alto": 7.291666666666667
+            }
+          ],
+          "tipo": "inventario_existente_asignado"
+        },
+        {
+          "id": "INF_18_0068",
+          "variante_id": "INF_18_0068-K3-V",
+          "zona": "INFERIOR",
+          "configuracion": 3,
+          "asientos": 3,
+          "orientacion": "V",
+          "x": 327.9791666666667,
+          "y": 274.6041666666667,
+          "ancho_svg": 16.041666666666668,
+          "alto_svg": 24.791666666666668,
+          "rect_svg": {
+            "x": 327.9791666666667,
+            "y": 274.6041666666667,
+            "ancho": 16.041666666666668,
+            "alto": 24.791666666666668
+          },
+          "ancho_env_m_estimado": 1.1,
+          "profundidad_env_m_estimada": 1.7,
+          "area_env_m2_estimada": 1.87,
+          "mesa_svg": {
+            "x": 327.9791666666667,
+            "y": 274.6041666666667,
+            "ancho": 8.75,
+            "alto": 17.5
+          },
+          "sillas_svg": [
+            {
+              "x": 336.7291666666667,
+              "y": 275.6979166666667,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 336.7291666666667,
+              "y": 284.4479166666667,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 329.0729166666667,
+              "y": 292.1041666666667,
+              "ancho": 6.5625,
+              "alto": 7.291666666666667
+            }
+          ],
+          "tipo": "inventario_existente_asignado"
+        },
+        {
+          "id": "INF_18_0069",
+          "variante_id": "INF_18_0069-K3-V",
+          "zona": "INFERIOR",
+          "configuracion": 3,
+          "asientos": 3,
+          "orientacion": "V",
+          "x": 345.9791666666667,
+          "y": 274.6041666666667,
+          "ancho_svg": 16.041666666666668,
+          "alto_svg": 24.791666666666668,
+          "rect_svg": {
+            "x": 345.9791666666667,
+            "y": 274.6041666666667,
+            "ancho": 16.041666666666668,
+            "alto": 24.791666666666668
+          },
+          "ancho_env_m_estimado": 1.1,
+          "profundidad_env_m_estimada": 1.7,
+          "area_env_m2_estimada": 1.87,
+          "mesa_svg": {
+            "x": 345.9791666666667,
+            "y": 274.6041666666667,
+            "ancho": 8.75,
+            "alto": 17.5
+          },
+          "sillas_svg": [
+            {
+              "x": 354.7291666666667,
+              "y": 275.6979166666667,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 354.7291666666667,
+              "y": 284.4479166666667,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 347.0729166666667,
+              "y": 292.1041666666667,
+              "ancho": 6.5625,
+              "alto": 7.291666666666667
+            }
+          ],
+          "tipo": "inventario_existente_asignado"
+        },
+        {
+          "id": "INF_18_0073",
+          "variante_id": "INF_18_0073-K3-V",
+          "zona": "INFERIOR",
+          "configuracion": 3,
+          "asientos": 3,
+          "orientacion": "V",
+          "x": 417.9791666666667,
+          "y": 274.6041666666667,
+          "ancho_svg": 16.041666666666668,
+          "alto_svg": 24.791666666666668,
+          "rect_svg": {
+            "x": 417.9791666666667,
+            "y": 274.6041666666667,
+            "ancho": 16.041666666666668,
+            "alto": 24.791666666666668
+          },
+          "ancho_env_m_estimado": 1.1,
+          "profundidad_env_m_estimada": 1.7,
+          "area_env_m2_estimada": 1.87,
+          "mesa_svg": {
+            "x": 417.9791666666667,
+            "y": 274.6041666666667,
+            "ancho": 8.75,
+            "alto": 17.5
+          },
+          "sillas_svg": [
+            {
+              "x": 426.7291666666667,
+              "y": 275.6979166666667,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 426.7291666666667,
+              "y": 284.4479166666667,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 419.0729166666667,
+              "y": 292.1041666666667,
+              "ancho": 6.5625,
+              "alto": 7.291666666666667
+            }
+          ],
+          "tipo": "inventario_existente_asignado"
+        },
+        {
+          "id": "INF_18_0074",
+          "variante_id": "INF_18_0074-K3-V",
+          "zona": "INFERIOR",
+          "configuracion": 3,
+          "asientos": 3,
+          "orientacion": "V",
+          "x": 435.9791666666667,
+          "y": 274.6041666666667,
+          "ancho_svg": 16.041666666666668,
+          "alto_svg": 24.791666666666668,
+          "rect_svg": {
+            "x": 435.9791666666667,
+            "y": 274.6041666666667,
+            "ancho": 16.041666666666668,
+            "alto": 24.791666666666668
+          },
+          "ancho_env_m_estimado": 1.1,
+          "profundidad_env_m_estimada": 1.7,
+          "area_env_m2_estimada": 1.87,
+          "mesa_svg": {
+            "x": 435.9791666666667,
+            "y": 274.6041666666667,
+            "ancho": 8.75,
+            "alto": 17.5
+          },
+          "sillas_svg": [
+            {
+              "x": 444.7291666666667,
+              "y": 275.6979166666667,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 444.7291666666667,
+              "y": 284.4479166666667,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 437.0729166666667,
+              "y": 292.1041666666667,
+              "ancho": 6.5625,
+              "alto": 7.291666666666667
+            }
+          ],
+          "tipo": "inventario_existente_asignado"
+        },
+        {
+          "id": "INF_18_0059",
+          "variante_id": "INF_18_0059-K2-H",
+          "zona": "INFERIOR",
+          "configuracion": 2,
+          "asientos": 2,
+          "orientacion": "H",
+          "x": 165.25,
+          "y": 278.9791666666667,
+          "ancho_svg": 17.5,
+          "alto_svg": 16.041666666666668,
+          "rect_svg": {
+            "x": 165.25,
+            "y": 278.9791666666667,
+            "ancho": 17.5,
+            "alto": 16.041666666666668
+          },
+          "ancho_env_m_estimado": 1.2,
+          "profundidad_env_m_estimada": 1.1,
+          "area_env_m2_estimada": 1.32,
+          "mesa_svg": {
+            "x": 165.25,
+            "y": 278.9791666666667,
+            "ancho": 17.5,
+            "alto": 8.75
+          },
+          "sillas_svg": [
+            {
+              "x": 166.34375,
+              "y": 287.7291666666667,
+              "ancho": 6.5625,
+              "alto": 7.291666666666667
+            },
+            {
+              "x": 175.09375,
+              "y": 287.7291666666667,
+              "ancho": 6.5625,
+              "alto": 7.291666666666667
+            }
+          ],
+          "tipo": "inventario_existente_asignado"
+        },
+        {
+          "id": "INF_18_0086",
+          "variante_id": "INF_18_0086-K3-V",
+          "zona": "INFERIOR",
+          "configuracion": 3,
+          "asientos": 3,
+          "orientacion": "V",
+          "x": 309.9791666666667,
+          "y": 292.6041666666667,
+          "ancho_svg": 16.041666666666668,
+          "alto_svg": 24.791666666666668,
+          "rect_svg": {
+            "x": 309.9791666666667,
+            "y": 292.6041666666667,
+            "ancho": 16.041666666666668,
+            "alto": 24.791666666666668
+          },
+          "ancho_env_m_estimado": 1.1,
+          "profundidad_env_m_estimada": 1.7,
+          "area_env_m2_estimada": 1.87,
+          "mesa_svg": {
+            "x": 309.9791666666667,
+            "y": 292.6041666666667,
+            "ancho": 8.75,
+            "alto": 17.5
+          },
+          "sillas_svg": [
+            {
+              "x": 318.7291666666667,
+              "y": 293.6979166666667,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 318.7291666666667,
+              "y": 302.4479166666667,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 311.0729166666667,
+              "y": 310.1041666666667,
+              "ancho": 6.5625,
+              "alto": 7.291666666666667
+            }
+          ],
+          "tipo": "inventario_existente_asignado"
+        },
+        {
+          "id": "INF_18_0089",
+          "variante_id": "INF_18_0089-K3-V",
+          "zona": "INFERIOR",
+          "configuracion": 3,
+          "asientos": 3,
+          "orientacion": "V",
+          "x": 363.9791666666667,
+          "y": 292.6041666666667,
+          "ancho_svg": 16.041666666666668,
+          "alto_svg": 24.791666666666668,
+          "rect_svg": {
+            "x": 363.9791666666667,
+            "y": 292.6041666666667,
+            "ancho": 16.041666666666668,
+            "alto": 24.791666666666668
+          },
+          "ancho_env_m_estimado": 1.1,
+          "profundidad_env_m_estimada": 1.7,
+          "area_env_m2_estimada": 1.87,
+          "mesa_svg": {
+            "x": 363.9791666666667,
+            "y": 292.6041666666667,
+            "ancho": 8.75,
+            "alto": 17.5
+          },
+          "sillas_svg": [
+            {
+              "x": 372.7291666666667,
+              "y": 293.6979166666667,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 372.7291666666667,
+              "y": 302.4479166666667,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 365.0729166666667,
+              "y": 310.1041666666667,
+              "ancho": 6.5625,
+              "alto": 7.291666666666667
+            }
+          ],
+          "tipo": "inventario_existente_asignado"
+        },
+        {
+          "id": "INF_18_0090",
+          "variante_id": "INF_18_0090-K3-V",
+          "zona": "INFERIOR",
+          "configuracion": 3,
+          "asientos": 3,
+          "orientacion": "V",
+          "x": 381.9791666666667,
+          "y": 292.6041666666667,
+          "ancho_svg": 16.041666666666668,
+          "alto_svg": 24.791666666666668,
+          "rect_svg": {
+            "x": 381.9791666666667,
+            "y": 292.6041666666667,
+            "ancho": 16.041666666666668,
+            "alto": 24.791666666666668
+          },
+          "ancho_env_m_estimado": 1.1,
+          "profundidad_env_m_estimada": 1.7,
+          "area_env_m2_estimada": 1.87,
+          "mesa_svg": {
+            "x": 381.9791666666667,
+            "y": 292.6041666666667,
+            "ancho": 8.75,
+            "alto": 17.5
+          },
+          "sillas_svg": [
+            {
+              "x": 390.7291666666667,
+              "y": 293.6979166666667,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 390.7291666666667,
+              "y": 302.4479166666667,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 383.0729166666667,
+              "y": 310.1041666666667,
+              "ancho": 6.5625,
+              "alto": 7.291666666666667
+            }
+          ],
+          "tipo": "inventario_existente_asignado"
+        },
+        {
+          "id": "INF_18_0091",
+          "variante_id": "INF_18_0091-K3-V",
+          "zona": "INFERIOR",
+          "configuracion": 3,
+          "asientos": 3,
+          "orientacion": "V",
+          "x": 399.9791666666667,
+          "y": 292.6041666666667,
+          "ancho_svg": 16.041666666666668,
+          "alto_svg": 24.791666666666668,
+          "rect_svg": {
+            "x": 399.9791666666667,
+            "y": 292.6041666666667,
+            "ancho": 16.041666666666668,
+            "alto": 24.791666666666668
+          },
+          "ancho_env_m_estimado": 1.1,
+          "profundidad_env_m_estimada": 1.7,
+          "area_env_m2_estimada": 1.87,
+          "mesa_svg": {
+            "x": 399.9791666666667,
+            "y": 292.6041666666667,
+            "ancho": 8.75,
+            "alto": 17.5
+          },
+          "sillas_svg": [
+            {
+              "x": 408.7291666666667,
+              "y": 293.6979166666667,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 408.7291666666667,
+              "y": 302.4479166666667,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 401.0729166666667,
+              "y": 310.1041666666667,
+              "ancho": 6.5625,
+              "alto": 7.291666666666667
+            }
+          ],
+          "tipo": "inventario_existente_asignado"
+        },
+        {
+          "id": "INF_18_0078",
+          "variante_id": "INF_18_0078-K2-H",
+          "zona": "INFERIOR",
+          "configuracion": 2,
+          "asientos": 2,
+          "orientacion": "H",
+          "x": 165.25,
+          "y": 296.9791666666667,
+          "ancho_svg": 17.5,
+          "alto_svg": 16.041666666666668,
+          "rect_svg": {
+            "x": 165.25,
+            "y": 296.9791666666667,
+            "ancho": 17.5,
+            "alto": 16.041666666666668
+          },
+          "ancho_env_m_estimado": 1.2,
+          "profundidad_env_m_estimada": 1.1,
+          "area_env_m2_estimada": 1.32,
+          "mesa_svg": {
+            "x": 165.25,
+            "y": 296.9791666666667,
+            "ancho": 17.5,
+            "alto": 8.75
+          },
+          "sillas_svg": [
+            {
+              "x": 166.34375,
+              "y": 305.7291666666667,
+              "ancho": 6.5625,
+              "alto": 7.291666666666667
+            },
+            {
+              "x": 175.09375,
+              "y": 305.7291666666667,
+              "ancho": 6.5625,
+              "alto": 7.291666666666667
+            }
+          ],
+          "tipo": "adicional"
+        },
+        {
+          "id": "INF_18_0095",
+          "variante_id": "INF_18_0095-K3-H",
+          "zona": "INFERIOR",
+          "configuracion": 3,
+          "asientos": 3,
+          "orientacion": "H",
+          "x": 467.6041666666667,
+          "y": 296.9791666666667,
+          "ancho_svg": 24.791666666666668,
+          "alto_svg": 16.041666666666668,
+          "rect_svg": {
+            "x": 467.6041666666667,
+            "y": 296.9791666666667,
+            "ancho": 24.791666666666668,
+            "alto": 16.041666666666668
+          },
+          "ancho_env_m_estimado": 1.7,
+          "profundidad_env_m_estimada": 1.1,
+          "area_env_m2_estimada": 1.87,
+          "mesa_svg": {
+            "x": 467.6041666666667,
+            "y": 296.9791666666667,
+            "ancho": 17.5,
+            "alto": 8.75
+          },
+          "sillas_svg": [
+            {
+              "x": 468.6979166666667,
+              "y": 305.7291666666667,
+              "ancho": 6.5625,
+              "alto": 7.291666666666667
+            },
+            {
+              "x": 477.4479166666667,
+              "y": 305.7291666666667,
+              "ancho": 6.5625,
+              "alto": 7.291666666666667
+            },
+            {
+              "x": 485.1041666666667,
+              "y": 298.0729166666667,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            }
+          ],
+          "tipo": "adicional"
+        },
+        {
+          "id": "INF_18_0112",
+          "variante_id": "INF_18_0112-K3-V",
+          "zona": "INFERIOR",
+          "configuracion": 3,
+          "asientos": 3,
+          "orientacion": "V",
+          "x": 435.9791666666667,
+          "y": 310.6041666666667,
+          "ancho_svg": 16.041666666666668,
+          "alto_svg": 24.791666666666668,
+          "rect_svg": {
+            "x": 435.9791666666667,
+            "y": 310.6041666666667,
+            "ancho": 16.041666666666668,
+            "alto": 24.791666666666668
+          },
+          "ancho_env_m_estimado": 1.1,
+          "profundidad_env_m_estimada": 1.7,
+          "area_env_m2_estimada": 1.87,
+          "mesa_svg": {
+            "x": 435.9791666666667,
+            "y": 310.6041666666667,
+            "ancho": 8.75,
+            "alto": 17.5
+          },
+          "sillas_svg": [
+            {
+              "x": 444.7291666666667,
+              "y": 311.6979166666667,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 444.7291666666667,
+              "y": 320.4479166666667,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 437.0729166666667,
+              "y": 328.1041666666667,
+              "ancho": 6.5625,
+              "alto": 7.291666666666667
+            }
+          ],
+          "tipo": "adicional"
+        },
+        {
+          "id": "INF_18_0099",
+          "variante_id": "INF_18_0099-K4-V",
+          "zona": "INFERIOR",
+          "configuracion": 4,
+          "asientos": 4,
+          "orientacion": "V",
+          "x": 198.33333333333334,
+          "y": 314.25,
+          "ancho_svg": 23.333333333333336,
+          "alto_svg": 17.5,
+          "rect_svg": {
+            "x": 198.33333333333334,
+            "y": 314.25,
+            "ancho": 23.333333333333336,
+            "alto": 17.5
+          },
+          "ancho_env_m_estimado": 1.6,
+          "profundidad_env_m_estimada": 1.2,
+          "area_env_m2_estimada": 1.92,
+          "mesa_svg": {
+            "x": 205.625,
+            "y": 314.25,
+            "ancho": 8.75,
+            "alto": 17.5
+          },
+          "sillas_svg": [
+            {
+              "x": 198.33333333333334,
+              "y": 315.34375,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 198.33333333333334,
+              "y": 324.09375,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 214.375,
+              "y": 315.34375,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 214.375,
+              "y": 324.09375,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            }
+          ],
+          "tipo": "adicional"
+        },
+        {
+          "id": "INF_18_0111",
+          "variante_id": "INF_18_0111-K2-V",
+          "zona": "INFERIOR",
+          "configuracion": 2,
+          "asientos": 2,
+          "orientacion": "V",
+          "x": 417.9791666666667,
+          "y": 314.25,
+          "ancho_svg": 16.041666666666668,
+          "alto_svg": 17.5,
+          "rect_svg": {
+            "x": 417.9791666666667,
+            "y": 314.25,
+            "ancho": 16.041666666666668,
+            "alto": 17.5
+          },
+          "ancho_env_m_estimado": 1.1,
+          "profundidad_env_m_estimada": 1.2,
+          "area_env_m2_estimada": 1.32,
+          "mesa_svg": {
+            "x": 417.9791666666667,
+            "y": 314.25,
+            "ancho": 8.75,
+            "alto": 17.5
+          },
+          "sillas_svg": [
+            {
+              "x": 426.7291666666667,
+              "y": 315.34375,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            },
+            {
+              "x": 426.7291666666667,
+              "y": 324.09375,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            }
+          ],
+          "tipo": "adicional"
+        },
+        {
+          "id": "INF_18_0097",
+          "variante_id": "INF_18_0097-K3-H",
+          "zona": "INFERIOR",
+          "configuracion": 3,
+          "asientos": 3,
+          "orientacion": "H",
+          "x": 161.60416666666666,
+          "y": 314.9791666666667,
+          "ancho_svg": 24.791666666666668,
+          "alto_svg": 16.041666666666668,
+          "rect_svg": {
+            "x": 161.60416666666666,
+            "y": 314.9791666666667,
+            "ancho": 24.791666666666668,
+            "alto": 16.041666666666668
+          },
+          "ancho_env_m_estimado": 1.7,
+          "profundidad_env_m_estimada": 1.1,
+          "area_env_m2_estimada": 1.87,
+          "mesa_svg": {
+            "x": 161.60416666666666,
+            "y": 314.9791666666667,
+            "ancho": 17.5,
+            "alto": 8.75
+          },
+          "sillas_svg": [
+            {
+              "x": 162.69791666666666,
+              "y": 323.7291666666667,
+              "ancho": 6.5625,
+              "alto": 7.291666666666667
+            },
+            {
+              "x": 171.44791666666666,
+              "y": 323.7291666666667,
+              "ancho": 6.5625,
+              "alto": 7.291666666666667
+            },
+            {
+              "x": 179.10416666666666,
+              "y": 316.0729166666667,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            }
+          ],
+          "tipo": "adicional"
+        },
+        {
+          "id": "INF_18_0114",
+          "variante_id": "INF_18_0114-K3-H",
+          "zona": "INFERIOR",
+          "configuracion": 3,
+          "asientos": 3,
+          "orientacion": "H",
+          "x": 467.6041666666667,
+          "y": 314.9791666666667,
+          "ancho_svg": 24.791666666666668,
+          "alto_svg": 16.041666666666668,
+          "rect_svg": {
+            "x": 467.6041666666667,
+            "y": 314.9791666666667,
+            "ancho": 24.791666666666668,
+            "alto": 16.041666666666668
+          },
+          "ancho_env_m_estimado": 1.7,
+          "profundidad_env_m_estimada": 1.1,
+          "area_env_m2_estimada": 1.87,
+          "mesa_svg": {
+            "x": 467.6041666666667,
+            "y": 314.9791666666667,
+            "ancho": 17.5,
+            "alto": 8.75
+          },
+          "sillas_svg": [
+            {
+              "x": 468.6979166666667,
+              "y": 323.7291666666667,
+              "ancho": 6.5625,
+              "alto": 7.291666666666667
+            },
+            {
+              "x": 477.4479166666667,
+              "y": 323.7291666666667,
+              "ancho": 6.5625,
+              "alto": 7.291666666666667
+            },
+            {
+              "x": 485.1041666666667,
+              "y": 316.0729166666667,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            }
+          ],
+          "tipo": "adicional"
+        },
+        {
+          "id": "INF_18_0133",
+          "variante_id": "INF_18_0133-K3-H",
+          "zona": "INFERIOR",
+          "configuracion": 3,
+          "asientos": 3,
+          "orientacion": "H",
+          "x": 467.6041666666667,
+          "y": 332.9791666666667,
+          "ancho_svg": 24.791666666666668,
+          "alto_svg": 16.041666666666668,
+          "rect_svg": {
+            "x": 467.6041666666667,
+            "y": 332.9791666666667,
+            "ancho": 24.791666666666668,
+            "alto": 16.041666666666668
+          },
+          "ancho_env_m_estimado": 1.7,
+          "profundidad_env_m_estimada": 1.1,
+          "area_env_m2_estimada": 1.87,
+          "mesa_svg": {
+            "x": 467.6041666666667,
+            "y": 332.9791666666667,
+            "ancho": 17.5,
+            "alto": 8.75
+          },
+          "sillas_svg": [
+            {
+              "x": 468.6979166666667,
+              "y": 341.7291666666667,
+              "ancho": 6.5625,
+              "alto": 7.291666666666667
+            },
+            {
+              "x": 477.4479166666667,
+              "y": 341.7291666666667,
+              "ancho": 6.5625,
+              "alto": 7.291666666666667
+            },
+            {
+              "x": 485.1041666666667,
+              "y": 334.0729166666667,
+              "ancho": 7.291666666666667,
+              "alto": 6.5625
+            }
+          ],
+          "tipo": "adicional"
+        }
+      ],
+      "incompatibilidades_modeladas": 6954,
+      "restricciones_conflicto_modeladas": 6954,
+      "grupos_incompatibles_comprimidos": 0,
+      "paso_malla_svg": 18,
+      "pesos_lexicograficos": {
+        "estudiantes": 7224,
+        "mesas_nuevas": 168,
+        "sillas_nuevas": 1,
+        "cota_mesas_nuevas": 42,
+        "cota_sillas_nuevas": 167
+      },
+      "secuencia_lexicografica": [
+        "1. Maximizar estudiantes atendidos",
+        "2. Minimizar mesas nuevas manteniendo atención máxima",
+        "3. Minimizar sillas nuevas manteniendo las dos prioridades anteriores"
+      ],
+      "metodo_objetivo": "Función objetivo ponderada con cotas enteras demostradas; equivalente lexicográfico exacto cuando se ejecuta sin límite de tiempo ni brecha relativa y CBC demuestra Optimal.",
+      "tiempo_limite_segundos": 60,
+      "brecha_relativa": 0.02,
+      "estado_validacion_espacial": "CRIBADO_SVG_CON_ENVOLVENTES_DISTINTAS_NO_VALIDACION_FISICA"
+    }
+  ],
+  "escenario_menor_incorporacion": "A",
+  "parametros_solver": {
+    "tiempo_limite_segundos": 60,
+    "brecha_relativa": 0.02,
+    "objetivo_ponderado_lexicografico": true,
+    "una_ejecucion_cbc_por_escenario": true,
+    "generacion_conflictos": "BARRIDO_EJE_X_Y_COMPRESION_POR_ANCLAJE"
+  },
+  "formulacion": {
+    "objetivo": "Maximizar A, minimizar mesas nuevas y minimizar sillas nuevas mediante una sola función objetivo ponderada con cotas enteras demostradas.",
+    "variables": [
+      "x[i,k,o] binaria: anclaje i, configuración k={2,3,4}, orientación o={H,V}",
+      "A entera: estudiantes atendidos",
+      "n_m entera: mesas nuevas",
+      "n_s entera: sillas nuevas"
+    ],
+    "restricciones": [
+      "Suma_{k,o} x[i,k,o] <= 1 para cada anclaje i",
+      "x[u] + x[v] <= 1 para pares de envolventes incompatibles; si todos los pares de dos anclajes chocan se usa una restricción agregada equivalente",
+      "Suma_{i,k,o} x[i,k,o] <= 48 + n_m",
+      "Suma_{i,k,o} k*x[i,k,o] <= 193 + n_s",
+      "A <= demanda y A <= plazas_sofas + Suma_{i,k,o} k*x[i,k,o]"
+    ],
+    "pesos": {
+      "estudiantes": 7224,
+      "mesas_nuevas": 168,
+      "sillas_nuevas": 1,
+      "cota_mesas_nuevas": 42,
+      "cota_sillas_nuevas": 167
+    },
+    "nota_espacial": "Las configuraciones y orientaciones usan envolventes distintas; las coordenadas permanecen en SVG y no calibran la planta completa."
+  },
+  "alcance": "Modelo PLEM de selección de variantes por anclaje, configuración y orientación. Usa una función objetivo ponderada exactamente lexicográfica con cotas enteras válidas, un solve CBC por escenario y conflictos espaciales generados por barrido. El modo rápido usa malla más gruesa y límites de búsqueda; no equivale a una validación física."
+}

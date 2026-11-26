@@ -1,0 +1,81 @@
+CRAI · SISTEMA INTEGRAL PLEM · GUÍA DE PUBLICACIÓN
+====================================================
+
+ESTADO DEL PAQUETE
+- Este paquete conserva los códigos, motores, módulos HTML, datos CSV/JSON y recursos visuales recibidos.
+- Se excluyó __pycache__ y los archivos .pyc porque Python los vuelve a generar.
+- No se modificó la carpeta original D:\yhon.
+- La aplicación está preparada para escuchar en HOST=0.0.0.0 y el puerto PORT que asigne el hosting.
+- El Dockerfile instala CBC en Linux y requirements.txt instala PuLP.
+
+ANTES DE PUBLICAR
+1. Mantén una copia de seguridad del ZIP original y de tu carpeta de trabajo.
+2. No publiques archivos con datos personales, credenciales ni información institucional confidencial.
+3. El paquete no incorpora autenticación. Si la URL es pública, cualquier visitante podrá abrir el sistema y solicitar optimizaciones.
+4. render.yaml declara plan: starter. Antes de crear el servicio, revisa el costo vigente que Render muestre y confirma que estás de acuerdo. No confirmes un plan de pago sin revisar el precio.
+5. Render puede usar almacenamiento efímero: los resultados generados en el servidor podrían perderse al reiniciar o desplegar nuevamente.
+
+PASO 1. EXTRAER EL PAQUETE
+1. Descarga el ZIP preparado.
+2. En Windows, haz clic derecho y selecciona "Extraer todo".
+3. Abre la carpeta extraída CRAI_PLEM_WEB_PUBLICO.
+4. Dentro debes ver directamente: Dockerfile, render.yaml, requirements.txt,
+   abrir_dashboard_crai_web.py, los motores .py, archivos .html, .js, .css,
+   CSV y JSON.
+5. No subas la carpeta __pycache__ ni archivos .pyc.
+
+PASO 2. SUBIR LOS ARCHIVOS A GITHUB
+1. Entra a https://github.com e inicia sesión.
+2. Abre tu repositorio privado CRAI-PLEM.
+3. Si aparece vacío, pulsa "Add file" y luego "Upload files".
+4. Abre en tu computadora la carpeta CRAI_PLEM_WEB_PUBLICO extraída.
+5. Selecciona TODO lo que está DENTRO de esa carpeta (no selecciones la carpeta
+   contenedora ni el ZIP) y arrástralo al área de carga de GitHub.
+6. Comprueba que Dockerfile, render.yaml y requirements.txt aparecen en la raíz
+   del repositorio, junto a los archivos Python y HTML.
+7. En "Commit changes", escribe: "Preparar despliegue inicial CRAI PLEM".
+8. Mantén el repositorio como Private y pulsa "Commit changes".
+9. Espera a que termine la carga. No cambies ni elimines archivos.
+
+PASO 3. CONECTAR GITHUB CON RENDER
+1. Entra a https://render.com y crea/inicia sesión en tu cuenta.
+2. Conecta tu cuenta de GitHub si Render lo solicita y autoriza el acceso al
+   repositorio privado CRAI-PLEM.
+3. En Render, selecciona New + y después Blueprint si vas a usar render.yaml.
+   Si no aparece Blueprint, selecciona Web Service y elige el repositorio.
+4. Confirma que Render detecta el Dockerfile y el entorno Docker.
+5. Revisa el plan que aparece. El archivo render.yaml declara "starter", que
+   puede ser un plan de pago. Verifica el precio actual antes de continuar.
+6. Si el precio no te conviene, detente y no confirmes la creación; consulta
+   primero cómo cambiar el plan y las limitaciones del servicio gratuito.
+7. Si estás de acuerdo con el costo, crea el servicio y espera a que termine
+   el despliegue.
+
+PASO 4. PROBAR LA APLICACIÓN
+Cuando Render muestre una URL pública HTTPS:
+1. Abre la URL principal y comprueba que carga el dashboard.
+2. Abre URL/api/diagnostico y verifica que responda correctamente.
+3. Revisa la navegación entre los módulos en la misma pestaña.
+4. Comprueba que el estado del motor espacial indique que CBC está disponible.
+5. Ejecuta primero una optimización en modo rápido y un solo escenario.
+6. Solo después prueba el modo exacto individual.
+7. Deja la comparación completa A/B/C para cuando hayas confirmado que el
+   servicio tiene recursos suficientes.
+8. Comparte la URL HTTPS con otras personas; no compartas la dirección local
+   127.0.0.1, porque solo funciona en tu propia computadora.
+
+SI ALGO FALLA
+- No borres el repositorio ni vuelvas a subir archivos al azar.
+- En Render abre el servicio y consulta Events y Logs.
+- Copia aquí el mensaje de error completo para revisarlo antes de cambiar código.
+
+NOTAS TÉCNICAS Y LÍMITES DEL MODELO
+- El servidor ejecuta Python, PuLP y CBC en el hosting; el navegador del visitante
+  no necesita instalar esos programas.
+- El dashboard permite cargar un Excel en el navegador para análisis en esa
+  sesión; esa función no envía automáticamente el archivo al servidor.
+- Las coordenadas del croquis y las envolventes espaciales son una escala visual
+  local no calibrada. El resultado es un cribado geométrico preliminar, no una
+  validación arquitectónica, métrica, normativa ni de evacuación.
+- El modelo y los resultados deben validarse en campo antes de implementar
+  cambios físicos en el CRAI.

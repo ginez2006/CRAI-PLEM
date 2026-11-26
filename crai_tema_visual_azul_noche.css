@@ -1,0 +1,192 @@
+/* CRAI - Tema Azul Noche v0.2: alto contraste y superficies uniformes */
+:root{
+  color-scheme:dark;
+  --bg:#071321;
+  --surface:#0b192a;
+  --panel:#101f34;
+  --panel-2:#142842;
+  --panel-3:#192f4b;
+  --ink:#edf5ff;
+  --muted:#b2c3d8;
+  --muted-2:#91a8c3;
+  --line:rgba(133,173,215,.28);
+  --blue:#69a5ff;
+  --cyan:#39d3ee;
+  --violet:#ad9aff;
+  --orange:#ffad62;
+  --green:#39d9b0;
+  --red:#ff7188;
+  --shadow:0 14px 34px rgba(0,0,0,.28);
+  --radius:16px;
+}
+*{box-sizing:border-box}
+html{background:var(--bg)!important;color-scheme:dark;scroll-behavior:smooth}
+body{
+  background-color:var(--bg)!important;
+  background-image:
+    radial-gradient(ellipse at 7% 0%,rgba(40,120,200,.20),transparent 34%),
+    radial-gradient(ellipse at 94% 7%,rgba(112,78,196,.15),transparent 30%),
+    radial-gradient(ellipse at 50% 100%,rgba(22,155,177,.09),transparent 42%),
+    repeating-linear-gradient(0deg,rgba(108,153,198,.035) 0,rgba(108,153,198,.035) 1px,transparent 1px,transparent 36px),
+    repeating-linear-gradient(90deg,rgba(108,153,198,.027) 0,rgba(108,153,198,.027) 1px,transparent 1px,transparent 36px),
+    linear-gradient(180deg,#071321 0%,#09182a 52%,#071321 100%)!important;
+  background-attachment:fixed!important;
+  color:var(--ink)!important;
+  font-family:Inter,system-ui,"Segoe UI",Arial,sans-serif!important;
+}
+body,body *{scrollbar-color:#345777 #0a192b}
+/* Default typography: readable on dark surfaces */
+body :is(h1,h2,h3,h4,h5,h6){color:#f1f6ff!important}
+body :is(p,li,dt,dd,figcaption){color:#d3e0ef}
+body :is(small,.sub,.meta,.muted,.hint,.footnote,.footer,.footer-note,.table-caption){color:var(--muted)!important}
+body :is(label,.field label,.scenario-select-row label,.spatial-controls label){color:#c8d8ea!important}
+body :is(strong,b){color:#f3f7ff}
+a{color:#76dcf4!important}
+a:hover{color:#b0f0ff!important}
+hr,.divider{border-color:var(--line)!important}
+/* Header / brand */
+.topbar,.top,.brand,.top-meta{color:var(--ink)!important}
+.brand-mark,.mark,.module-icon{
+  background:linear-gradient(140deg,#205bb0,#1689bf 58%,#25b7c8)!important;
+  color:#fff!important;border:1px solid rgba(112,208,255,.36)!important;
+  box-shadow:0 8px 24px rgba(25,143,208,.22),inset 0 1px 0 rgba(255,255,255,.22)!important
+}
+.live-dot{background:#39ddb0!important;box-shadow:0 0 12px rgba(57,221,176,.65)!important}
+/* Hero bars */
+.hero{
+  background:radial-gradient(ellipse at 88% 0%,rgba(45,197,226,.18),transparent 36%),
+    linear-gradient(112deg,#0c2038 0%,#12375d 58%,#124b68 100%)!important;
+  color:#f5f9ff!important;border:1px solid rgba(111,177,225,.34)!important;
+  box-shadow:0 17px 38px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.05)!important;
+  position:relative;overflow:hidden
+}
+.hero :is(h1,h2,h3,h4,p,span,small,strong,b,.hero-tag,.tag){color:#f2f8ff!important}
+.hero p,.hero small{color:#d0e1f2!important}
+.hero-tag,.tag,.pill,.status-pill{
+  background:rgba(7,24,43,.78)!important;color:#c9f1ff!important;
+  border:1px solid rgba(112,195,232,.34)!important
+}
+/* Surfaces: include the inner metric cards that previously stayed white */
+:where(.panel,.card,.kpi,.kpis,.stat,.stats,.measure,.measure-grid,.measure-grid>*,.audit-cell,.audit-grid>*,
+.info,.info-grid>*,.info-card,.data-card,.metric-card,.fact-card,.dimension-row,.measure-row,
+.chart,.chart-panel,.chart-wrap,.table-panel,.table-wrap,.map-card,.map-stat,.mini-card,.eval-card,
+.scenario,.scenario-metric,.step-card,.theory,.theory-panel,.formula,.choice,.control,.details,
+.zone-table,.proposal-analytics-grid,.cbc-analytics-card,.cbc-analytics-grid>*,.side-card,.side,
+.results,.result,.info-grid,.kpi-grid>*,.stat-grid>*,.detail-card,.data-tile,.audit-panel,.empty-state,
+.spatial-mini,.spatial-mini-grid>*,.dimension-list,.dimension-list>*){
+  background:linear-gradient(155deg,rgba(17,36,59,.98),rgba(11,27,46,.99))!important;
+  color:#eaf3ff!important;
+  border-color:var(--line)!important;
+  box-shadow:0 10px 26px rgba(0,0,0,.18),inset 0 1px 0 rgba(255,255,255,.035)!important;
+}
+/* Make all nested labels readable, including the light-on-white bug in audit cells */
+:where(.panel,.card,.kpi,.stat,.measure,.audit-cell,.info,.info-card,.data-card,.metric-card,.fact-card,
+.chart,.chart-panel,.chart-wrap,.table-panel,.table-wrap,.map-card,.map-stat,.mini-card,.eval-card,
+.scenario,.scenario-metric,.step-card,.theory,.theory-panel,.formula,.choice,.control,.details,
+.zone-table,.proposal-analytics-grid,.cbc-analytics-card,.side-card,.side,.results,.result,
+.spatial-mini,.dimension-list) :is(h1,h2,h3,h4,h5,h6,p,span,small,label,li,dt,dd,div,em,i){
+  color:#d9e7f6!important;
+}
+:where(.panel,.card,.kpi,.stat,.measure,.audit-cell,.info-card,.data-card,.metric-card,.fact-card,
+.map-card,.mini-card,.eval-card,.scenario,.scenario-metric,.step-card,.cbc-analytics-card,
+.side-card,.results,.result) :is(h1,h2,h3,h4,h5,h6){color:#f0f6ff!important}
+:where(.panel,.card,.kpi,.stat,.measure,.audit-cell,.info-card,.data-card,.metric-card,.fact-card,
+.map-card,.mini-card,.eval-card,.scenario,.scenario-metric,.step-card,.cbc-analytics-card,
+.side-card,.results,.result) :is(small,.muted,.sub,.meta,.hint,.footnote){color:#afc3da!important}
+/* KPI values retain vivid semantic accents */
+.num,.kpi-value,.value,.metric-value,.stat-value,.measure-value,.best,.best-tag{color:#f6f9ff!important}
+.blue,.kpi.blue strong,.kpi.blue .num,.kpi.blue .value{color:#79aaff!important}
+.cyan,.kpi.cyan strong,.kpi.cyan .num,.kpi.cyan .value{color:#4bd8ef!important}
+.green,.kpi.green strong,.kpi.green .num,.kpi.green .value{color:#45dfb7!important}
+.orange,.kpi.orange strong,.kpi.orange .num,.kpi.orange .value{color:#ffb46f!important}
+.red,.kpi.red strong,.kpi.red .num,.kpi.red .value{color:#ff8798!important}
+.violet,.kpi.violet strong,.kpi.violet .num{color:#b4a4ff!important}
+/* Inline white/light surfaces: convert only common block containers, not SVG/canvas */
+div[style*="background:#fff" i],div[style*="background: #fff" i],
+div[style*="background-color:#fff" i],div[style*="background-color: #fff" i],
+div[style*="background:white" i],div[style*="background: white" i],
+div[style*="background:#f6f" i],div[style*="background: #f6f" i],
+div[style*="background:#fbf" i],div[style*="background: #fbf" i]{
+  background:linear-gradient(155deg,#142943,#102239)!important;
+  color:#eaf3ff!important;border-color:var(--line)!important
+}
+/* Buttons / actions */
+button,.btn,.link,.toolbtn,.back,.hero-button,.sim3d-btn,.actions a,.module-access a{
+  border:1px solid rgba(115,169,218,.35)!important;border-radius:10px!important;
+  background:linear-gradient(145deg,#173453,#102740)!important;color:#e8f4ff!important;
+  box-shadow:0 6px 16px rgba(0,0,0,.2),inset 0 1px 0 rgba(255,255,255,.045)!important;
+  transition:transform .16s ease,border-color .16s ease,box-shadow .16s ease!important
+}
+button:hover,.btn:hover,.link:hover,.toolbtn:hover,.back:hover,.hero-button:hover,.sim3d-btn:hover,.actions a:hover,.module-access a:hover{
+  transform:translateY(-1px)!important;border-color:rgba(57,211,238,.7)!important;
+  box-shadow:0 9px 22px rgba(0,0,0,.28),0 0 0 2px rgba(57,211,238,.1)!important
+}
+.btn.primary,.primary,.hero-button.primary,.sim3d-btn.primary,button.primary,[data-primary="true"]{
+  background:linear-gradient(110deg,#286fda,#237fca 55%,#159bb6)!important;
+  border-color:rgba(98,212,255,.5)!important;color:#fff!important
+}
+.btn.orange,.button-orange{background:linear-gradient(110deg,#a95827,#ce7934)!important;border-color:#f3a864!important;color:#fff!important}
+.btn.violet,.button-violet{background:linear-gradient(110deg,#5848a7,#8065d4)!important;border-color:#ad9aff!important;color:#fff!important}
+.btn.success,.button-success{background:linear-gradient(110deg,#087a70,#16a88e)!important;border-color:#4cdec0!important;color:#fff!important}
+button:disabled,.btn:disabled{opacity:.5!important;filter:saturate(.6);cursor:not-allowed!important}
+/* Inputs and selects */
+input:not([type=checkbox]):not([type=radio]),select,textarea{
+  background:#091a2d!important;color:#f0f6ff!important;
+  border:1px solid rgba(125,173,218,.38)!important;border-radius:9px!important;
+  box-shadow:inset 0 2px 8px rgba(0,0,0,.18)!important
+}
+input::placeholder,textarea::placeholder{color:#91a8c3!important;opacity:1!important}
+option{background:#10223a!important;color:#f0f6ff!important}
+input[type=checkbox],input[type=radio],input[type=range]{accent-color:#39c9e5!important}
+input:focus,select:focus,textarea:focus,button:focus-visible,a:focus-visible{outline:2px solid rgba(57,211,238,.7)!important;outline-offset:2px!important}
+/* Tables */
+table{border-collapse:separate;border-spacing:0;color:#e5effb!important}
+thead th,th{background:rgba(37,75,115,.55)!important;color:#83e2f5!important;border-bottom:1px solid rgba(129,177,218,.3)!important}
+td{color:#dce9f8!important;border-bottom:1px solid rgba(129,164,199,.18)!important}
+tbody tr:nth-child(even){background:rgba(40,78,118,.15)!important}
+tbody tr:hover{background:rgba(39,147,185,.16)!important}
+/* Status banners */
+.notice,.callout-soft,.audit-alert,.status,.sim3d-status,.sim3d-method,.note,.safety,.theory-intro,.theory-foot,.spatial-warning,.scenario-caveat{
+  background:rgba(16,42,67,.96)!important;color:#d8e7f7!important;
+  border:1px solid rgba(117,169,211,.3)!important;border-radius:11px!important
+}
+.notice strong,.callout-soft strong{color:#f4f8ff!important}
+.notice.warn,.warn,.warning,.status.warn,.spatial-warning{background:rgba(113,70,24,.28)!important;border-color:rgba(255,177,95,.42)!important;color:#ffd4a7!important}
+.ok,.success,.status.ok,.sim3d-status.ok{background:rgba(15,109,91,.24)!important;border-color:rgba(61,218,180,.4)!important;color:#9af2d9!important}
+.bad,.error,.status.bad,.status.error{background:rgba(133,42,65,.25)!important;border-color:rgba(255,113,136,.4)!important;color:#ffb1bf!important}
+/* Statistical charts remain 2D. Keep their chart area legible and canvas transparent. */
+.chart-panel,.chart,.chart-wrap,.sim3d-chart-wrap{background:linear-gradient(155deg,#0d2035,#0a192b)!important;border-color:var(--line)!important}
+.chart-wrap canvas,.sim3d-chart-wrap canvas{background:transparent!important}
+.chart-title,.chart-title :is(h3,p){color:#eaf3ff!important}
+.legend,.map-legend,.sim3d-legend{color:#c5d8eb!important}
+.bar-track,.pbar-track,.bar-list,.bar-row{background:rgba(91,129,168,.2)!important}
+.bar-label,.bar-value,.pbar-value{color:#e3effc!important}
+/* Architectural SVG stays faithful to its own palette */
+.svg-wrap,.map-wrap,.plan-wrap,.map-svg,.map-card{background:linear-gradient(150deg,#091a2d,#10243b)!important;border-color:var(--line)!important}
+.crai3d-card,.crai3d-view,.crai3d-stage,#crai3dCanvas,.sim3d-stage{
+  background:radial-gradient(ellipse at 48% 35%,#173b62 0%,#0b1b31 65%,#06111f 100%)!important;
+  border:1px solid rgba(70,177,225,.35)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.04),0 12px 30px rgba(0,0,0,.24)!important
+}
+.crai3d-card :is(h4,.crai3d-view-title,.crai3d-hint),.sim3d-side-card :is(h3,h4,p,small){color:#eaf5ff!important}
+.crai3d-2d-details{background:rgba(12,29,48,.95)!important;border:1px solid var(--line)!important;border-radius:10px!important;color:#dceafa!important}
+.crai3d-2d-details summary{color:#8fe7f8!important}
+.sim3d-side-card{background:linear-gradient(155deg,#10243d,#0b1b30)!important;border-color:rgba(91,154,207,.3)!important;color:#e5f1ff!important}
+.sim3d-kpi,.sim3d-stat{background:rgba(34,67,103,.55)!important;border-color:rgba(102,160,207,.28)!important}
+.sim3d-kpi span,.sim3d-stat span{color:#b6cbe2!important}
+.sim3d-kpi strong,.sim3d-stat strong{color:#f3f8ff!important}
+.sim3d-control select,.sim3d-control input{background:#09192b!important;color:#e8f2ff!important}
+.sim3d-status.warn{background:rgba(110,70,22,.28)!important;color:#ffd49c!important}
+.sim3d-status.ok{background:rgba(14,111,93,.25)!important;color:#9af0d5!important}
+/* Footer / empty states */
+.footer,.footer-note,.footnote{color:#9bb1ca!important}
+.empty-icon{background:rgba(54,124,205,.2)!important;color:#9feaff!important;border:1px solid rgba(57,211,238,.28)!important}
+.empty-state h3{color:#f0f7ff!important}.empty-state p{color:#b5c9df!important}
+/* Accessibility and contrast for content inside nested dark metric tiles */
+.audit-cell :is(small,span,p,strong,b),.measure :is(small,span,p,strong,b),.info-grid :is(small,span,p,strong,b),
+.dimension-list :is(small,span,p,strong,b),.scenario-metric :is(small,span,p,strong,b){text-shadow:none!important}
+*::-webkit-scrollbar{width:10px;height:10px}
+*::-webkit-scrollbar-track{background:#091728}
+*::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#2c749f,#345080);border-radius:10px;border:2px solid #091728}
+@media(max-width:720px){.hero{padding:18px!important}.panel,.card,.chart-panel{padding:13px!important}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
